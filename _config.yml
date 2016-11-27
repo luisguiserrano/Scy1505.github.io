@@ -18,10 +18,12 @@ navigation:
    url: /about
  - title: Contact
    url: /contact
+ - title: Posts
+   url: /articles
 
 social:
    github: scy1505
-   twitter: juan1505
+   twitter: jperezvallejo
    facebook: juan1505
    email: juan1505@gmail.com
 

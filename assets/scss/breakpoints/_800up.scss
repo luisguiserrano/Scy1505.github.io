@@ -2,7 +2,10 @@
 GLOBAL STYLES
 ***************/
 
-.content {
+	
+	.content {
+	
+
 	padding-top: 0;
 	position: relative;
 	z-index: 1;
@@ -24,12 +27,16 @@ GLOBAL STYLES
 		-ms-transform-origin: bottom left;
 		transform-origin: bottom left; 
 	}
+
 }
 
 .container {
-	@include container(800px); 
+
+	@include container(60%); 
 	padding: 0;
 }
+
+
 
 
 /***************
@@ -38,7 +45,7 @@ HOMEPAGE STYLING
 
 #home {
 	.posts, .pageTitle, .pagination {
-		@include span(9 of 12);
+		@include span(11 of 12);
 		float: none;
 		margin: 0 auto 1.5em;
 	}
@@ -146,6 +153,7 @@ POST STYLING
 	}
 
 	h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+
 		margin: 1rem auto; 
 	}
 
@@ -154,6 +162,7 @@ POST STYLING
 	}
 
 	.featuredImage {
+
 		position: relative;
 		margin-top: 2rem;
 

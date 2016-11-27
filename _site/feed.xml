@@ -5,9 +5,26 @@
     <description>A resting place for Puppy.</description>
     <link>http://scy1505.github.io/</link>
     <atom:link href="http://scy1505.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 27 Nov 2016 13:25:04 -0500</pubDate>
-    <lastBuildDate>Sun, 27 Nov 2016 13:25:04 -0500</lastBuildDate>
+    <pubDate>Sun, 27 Nov 2016 16:26:07 -0500</pubDate>
+    <lastBuildDate>Sun, 27 Nov 2016 16:26:07 -0500</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      
+      <item>
+        <title>The K-armed Bandit</title>
+        <description>
+</description>
+        
+          <description>
+</description>
+        
+        <pubDate>Mon, 31 Oct 2016 00:00:00 -0400</pubDate>
+        <link>http://scy1505.github.io/blog/K-armed/</link>
+        <guid isPermaLink="true">http://scy1505.github.io/blog/K-armed/</guid>
+        
+        
+      </item>
+      
     
       
       <item>
@@ -531,23 +548,6 @@ and we can compute the earlier errors from the later ones. We can use this, plus
         <pubDate>Wed, 19 Oct 2016 00:00:00 -0400</pubDate>
         <link>http://scy1505.github.io/blog/neural-nets/</link>
         <guid isPermaLink="true">http://scy1505.github.io/blog/neural-nets/</guid>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>The K-armed Bandit</title>
-        <description>
-</description>
-        
-          <description>
-</description>
-        
-        <pubDate>Thu, 13 Oct 2016 00:00:00 -0400</pubDate>
-        <link>http://scy1505.github.io/blog/example/</link>
-        <guid isPermaLink="true">http://scy1505.github.io/blog/example/</guid>
         
         
       </item>
