@@ -492,7 +492,7 @@ ga('send', 'pageview');
 <span class="c1">#place the legend in the best possible position</span>
 <span class="n">plt</span><span class="p">.</span><span class="nf">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'best'</span><span class="p">);</span></code></pre></figure>
 
-<p><img src="/img/Titanic_files/Titanic_24_1.png" alt="" /></p>
+<p><img src="/assets/img/Titanic_files/Titanic_24_1.png" alt="" /></p>
 
 <p>Next, we use bar graphs to show the Proportions of passengers in the categories Pclass, Sex, and Embarked. The idea is always the same, first we use DataFrame.Feature to create the data series associated to the feature, then <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.value_counts.html">Series.value_counts()</a> to create the data series associated to the relative frequencies of the unique values (note that this is achieved by the parameter normalize). Finally we use the plot method with the parameter kind set to ‘bar’ to get the bars graph.</p>
 
@@ -541,7 +541,7 @@ ga('send', 'pageview');
 <span class="c1">#place the legend in the best possible position</span>
 <span class="n">ax2</span><span class="p">.</span><span class="nf">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'best'</span><span class="p">);</span></code></pre></figure>
 
-<p><img src="/img/Titanic_files/Titanic_26_0.png" alt="" /></p>
+<p><img src="/assets/img/Titanic_files/Titanic_26_0.png" alt="" /></p>
 
 <p>A note about the feature Embarked. It means Port of Embarkation (C = Cherbourg; Q = Queenstown; S = Southampton).</p>
 
@@ -571,7 +571,7 @@ Name: Survived, dtype: int64
 <span class="n">plt</span><span class="p">.</span><span class="nf">xlabel</span><span class="p">(</span><span class="s1">'Age'</span><span class="p">)</span>
 <span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="s2">"What age group is more likely to survive?"</span> <span class="p">);</span></code></pre></figure>
 
-<p><img src="/img/Titanic_files/Titanic_33_0.png" alt="" /></p>
+<p><img src="/assets/img/Titanic_files/Titanic_33_0.png" alt="" /></p>
 
 <p>We can draw a couple of quick conclutions. First, there’s a small increase in the chances of survival for people between ~15  and 30 years old. Second, the chances of survival decreasse if you are less than 15. But the chances do not change if older than 30.</p>
 
@@ -588,7 +588,7 @@ Name: Survived, dtype: int64
 <span class="n">plt</span><span class="p">.</span><span class="nf">xlabel</span><span class="p">(</span><span class="s1">'Age'</span><span class="p">)</span>
 <span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="s2">"What sex is more likely to survive?"</span> <span class="p">);</span></code></pre></figure>
 
-<p><img src="/img/Titanic_files/Titanic_37_0.png" alt="" /></p>
+<p><img src="/assets/img/Titanic_files/Titanic_37_0.png" alt="" /></p>
 
 <p>That is about two thirds of the survivors are women and one third is men.</p>
 
@@ -602,7 +602,7 @@ Name: Survived, dtype: int64
 <span class="n">plt</span><span class="p">.</span><span class="nf">xlabel</span><span class="p">(</span><span class="s1">'Age'</span><span class="p">)</span>
 <span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="s2">"What sex is more likely to no  survive?"</span> <span class="p">);</span></code></pre></figure>
 
-<p><img src="/img/Titanic_files/Titanic_39_0.png" alt="" /></p>
+<p><img src="/assets/img/Titanic_files/Titanic_39_0.png" alt="" /></p>
 
 <p>And less than one fifth of the ones that didn’t survived is female. We can conclude that there are better chances of surviving for female persons.  Let’s try to be more precise and divide the population into four subsets, FemSur, FemNoSur, MalSur, and MalNoSur. We create a new feature to keep this information, we will need an auxiliary function.</p>
 
@@ -629,7 +629,7 @@ Name: Survived, dtype: int64
 
 <span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="s2">"What sex is more likely to no  survive?"</span> <span class="p">);</span></code></pre></figure>
 
-<p><img src="/img/Titanic_files/Titanic_45_0.png" alt="" /></p>
+<p><img src="/assets/img/Titanic_files/Titanic_45_0.png" alt="" /></p>
 
 <p>This give us the outcome that if female the chances are about 2/3 of surviving meanwhile if male the chances are about 1/5.</p>
 
@@ -658,7 +658,7 @@ Name: Survived, dtype: int64
 <span class="n">ax0</span><span class="p">.</span><span class="nf">set_ylabel</span><span class="p">(</span><span class="s1">'Percentage'</span><span class="p">)</span>
 <span class="n">ax0</span><span class="p">.</span><span class="nf">set_xlabel</span><span class="p">(</span><span class="s1">'1: Survived\n 0: Did not survive'</span><span class="p">);</span></code></pre></figure>
 
-<p><img src="/img/Titanic_files/Titanic_49_0.png" alt="" /></p>
+<p><img src="/assets/img/Titanic_files/Titanic_49_0.png" alt="" /></p>
 
 <p>This clearly shows that people in upper classes had a highest chance of survival. But how do males and females survivale compares in each classs? We create DataFrames with only males and one with other males to find this out.</p>
 
@@ -708,7 +708,7 @@ Name: Survived, dtype: int64
 
 <span class="n">plt</span><span class="p">.</span><span class="nf">tight_layout</span><span class="p">()</span> <span class="c1"># This command allows the graph to loook nice, try to run it without it to find what happens.</span></code></pre></figure>
 
-<p><img src="/img/Titanic_files/Titanic_53_0.png" alt="" /></p>
+<p><img src="/assets/img/Titanic_files/Titanic_53_0.png" alt="" /></p>
 
 <p>This shows that first class females were by far the most likely group to survived. At heart this process we carried out is similar to a decision tree, we will come back to this later. We could keep doing this kinds of analysis and I encourage you to try your own. But, for us the next step is to clean the Data.</p>
 
@@ -823,7 +823,7 @@ dtype: int64
 <span class="n">plt</span><span class="p">.</span><span class="nf">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'green'</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">.</span><span class="nf">set_title</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="o">.</span><span class="mi">1</span><span class="p">);</span></code></pre></figure>
 
-<p><img src="/img/Titanic_files/Titanic_65_0.png" alt="" /></p>
+<p><img src="/assets/img/Titanic_files/Titanic_65_0.png" alt="" /></p>
 
 <p>That is for these passengers, the most likely scenario is that their port of embarking was ‘c’, which corresponds to Cherbourg. But is this correct? this seems reasonable just by reading from the Data, but it is usually better to look for “real” sources to complete the data, for example in <a href="https://www.encyclopedia-titanica.org/titanic-survivor/martha-evelyn-stone.html">Encyclopedia Titanica</a> we can find info about the passengers. For this case we have that Amelie Icard was Mrs. Stone maid and they boarded in Southampton, that is the port of embarking should be ‘S’.</p>
 
@@ -1537,7 +1537,7 @@ Name: Title, dtype: int64
 
 <span class="n">plt</span><span class="p">.</span><span class="nf">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'best'</span><span class="p">);</span></code></pre></figure>
 
-<p><img src="/img/Titanic_files/Titanic_136_0.png" alt="" /></p>
+<p><img src="/assets/img/Titanic_files/Titanic_136_0.png" alt="" /></p>
 
 <p>Finally, let’s put this results back in the train and test dataFrames.</p>
 
@@ -1711,7 +1711,7 @@ Name: Title, dtype: int64
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">plot_learning_curve</span><span class="p">(</span><span class="n">clf_knn</span><span class="p">,</span> <span class="s1">'KNN'</span><span class="p">,</span> <span class="no">X</span><span class="p">,</span> <span class="no">Y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">4</span><span class="p">);</span></code></pre></figure>
 
-<p><img src="/img/Titanic_files/Titanic_177_0.png" alt="" /></p>
+<p><img src="/assets/img/Titanic_files/Titanic_177_0.png" alt="" /></p>
 
 <h2 id="random-forest">Random Forest</h2>
 
@@ -1734,7 +1734,7 @@ Name: Title, dtype: int64
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">plot_learning_curve</span><span class="p">(</span><span class="n">clf_rfc1</span><span class="p">,</span> <span class="s1">'Random Forest'</span><span class="p">,</span> <span class="no">X</span><span class="p">,</span> <span class="no">Y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">4</span><span class="p">);</span></code></pre></figure>
 
-<p><img src="/img/Titanic_files/Titanic_184_0.png" alt="" /></p>
+<p><img src="/assets/img/Titanic_files/Titanic_184_0.png" alt="" /></p>
 
 <p>This isn’t pretty good, can we improve this? Let’s check how many features contributed more than 0.1%.</p>
 
@@ -1769,7 +1769,7 @@ Name: Title, dtype: int64
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">plot_learning_curve</span><span class="p">(</span><span class="n">clf_rfc2</span><span class="p">,</span> <span class="s1">'Random Forest'</span><span class="p">,</span> <span class="no">X</span><span class="p">[</span><span class="n">cols</span><span class="p">],</span> <span class="no">Y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">4</span><span class="p">);</span></code></pre></figure>
 
-<p><img src="/img/Titanic_files/Titanic_194_0.png" alt="" /></p>
+<p><img src="/assets/img/Titanic_files/Titanic_194_0.png" alt="" /></p>
 
 <h2 id="logistic-regression">Logistic Regression</h2>
 
@@ -1792,7 +1792,7 @@ Name: Title, dtype: int64
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">plot_learning_curve</span><span class="p">(</span><span class="n">clf_lg</span><span class="p">,</span> <span class="s1">'Logistic Regression'</span><span class="p">,</span> <span class="no">X</span><span class="p">,</span> <span class="no">Y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">4</span><span class="p">);</span></code></pre></figure>
 
-<p><img src="/img/Titanic_files/Titanic_201_0.png" alt="" /></p>
+<p><img src="/assets/img/Titanic_files/Titanic_201_0.png" alt="" /></p>
 
 <h2 id="support-vector-machine-svm">Support Vector Machine (SVM)</h2>
 
@@ -1816,7 +1816,7 @@ Name: Title, dtype: int64
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">plot_learning_curve</span><span class="p">(</span><span class="n">clf_svc</span><span class="p">,</span> <span class="s1">'SVC'</span><span class="p">,</span> <span class="no">X</span><span class="p">,</span> <span class="no">Y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">4</span><span class="p">);</span></code></pre></figure>
 
-<p><img src="/img/Titanic_files/Titanic_208_0.png" alt="" /></p>
+<p><img src="/assets/img/Titanic_files/Titanic_208_0.png" alt="" /></p>
 
 <h2 id="voting-classifier">Voting Classifier</h2>
 
@@ -1840,7 +1840,7 @@ Name: Title, dtype: int64
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">plot_learning_curve</span><span class="p">(</span><span class="n">clf_vc</span><span class="p">,</span> <span class="s1">'Voting Classifier'</span><span class="p">,</span> <span class="no">X</span><span class="p">,</span> <span class="no">Y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">4</span><span class="p">);</span></code></pre></figure>
 
-<p><img src="/img/Titanic_files/Titanic_215_0.png" alt="" /></p>
+<p><img src="/assets/img/Titanic_files/Titanic_215_0.png" alt="" /></p>
 
 <h1 id="conclusion">Conclusion</h1>
 
@@ -1865,10 +1865,14 @@ Name: Title, dtype: int64
   <!-- POST NAVIGATION -->
   <div class="postNav clearfix">
      
-      <a class="prev" href="/blog/example/"><span>&laquo;&nbsp;Example</span>
+      <a class="prev" href="/blog/example-post-formatting/"><span>&laquo;&nbsp;Example Post Formatting</span>
       
     </a>
       
+      
+      <a class="next" href="/blog/example/"><span>The K-armed Bandit&nbsp;&raquo;</span>
+       
+      </a>
      
   </div>
 </div>

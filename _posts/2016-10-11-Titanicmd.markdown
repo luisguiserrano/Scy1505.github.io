@@ -475,7 +475,7 @@ plt.legend(loc='best');
 
 {% endhighlight %}
 
-<img src="{{ '/img/Titanic_files/Titanic_24_1.png' | prepend: site.baseurl }}" alt=""> 
+<img src="{{ '/assets/img/Titanic_files/Titanic_24_1.png' | prepend: site.baseurl }}" alt=""> 
 
 
 
@@ -531,7 +531,7 @@ ax2.legend(loc='best');
 
 {% endhighlight %}
 
-<img src="{{ '/img/Titanic_files/Titanic_26_0.png' | prepend: site.baseurl }}" alt=""> 
+<img src="{{ '/assets/img/Titanic_files/Titanic_26_0.png' | prepend: site.baseurl }}" alt=""> 
 
 
 
@@ -572,7 +572,7 @@ plt.xlabel('Age')
 plt.title("What age group is more likely to survive?" );
 {% endhighlight %}
 
-<img src="{{ '/img/Titanic_files/Titanic_33_0.png' | prepend: site.baseurl }}" alt=""> 
+<img src="{{ '/assets/img/Titanic_files/Titanic_33_0.png' | prepend: site.baseurl }}" alt=""> 
 
 
 
@@ -594,7 +594,7 @@ plt.xlabel('Age')
 plt.title("What sex is more likely to survive?" );
 {% endhighlight %}
 
-<img src="{{ '/img/Titanic_files/Titanic_37_0.png' | prepend: site.baseurl }}" alt=""> 
+<img src="{{ '/assets/img/Titanic_files/Titanic_37_0.png' | prepend: site.baseurl }}" alt=""> 
 
 
 
@@ -613,7 +613,7 @@ plt.xlabel('Age')
 plt.title("What sex is more likely to no  survive?" );
 {% endhighlight %}
 
-<img src="{{ '/img/Titanic_files/Titanic_39_0.png' | prepend: site.baseurl }}" alt=""> 
+<img src="{{ '/assets/img/Titanic_files/Titanic_39_0.png' | prepend: site.baseurl }}" alt=""> 
 
 
 
@@ -651,7 +651,7 @@ train2.SexSur.value_counts(normalize=True).plot(kind='pie',label='Sex and Surviv
 plt.title("What sex is more likely to no  survive?" );
 {% endhighlight %}
 
-<img src="{{ '/img/Titanic_files/Titanic_45_0.png' | prepend: site.baseurl }}" alt=""> 
+<img src="{{ '/assets/img/Titanic_files/Titanic_45_0.png' | prepend: site.baseurl }}" alt=""> 
 
 
 This give us the outcome that if female the chances are about 2/3 of surviving meanwhile if male the chances are about 1/5.
@@ -685,7 +685,7 @@ ax0.set_xlabel('1: Survived\n 0: Did not survive');
 
 {% endhighlight %}
 
-<img src="{{ '/img/Titanic_files/Titanic_49_0.png' | prepend: site.baseurl }}" alt=""> 
+<img src="{{ '/assets/img/Titanic_files/Titanic_49_0.png' | prepend: site.baseurl }}" alt=""> 
 
 
 
@@ -743,7 +743,7 @@ ax5.set_xlabel('1: Survived\n 0: Did not survive');
 plt.tight_layout() # This command allows the graph to loook nice, try to run it without it to find what happens.
 {% endhighlight %}
 
-<img src="{{ '/img/Titanic_files/Titanic_53_0.png' | prepend: site.baseurl }}" alt=""> 
+<img src="{{ '/assets/img/Titanic_files/Titanic_53_0.png' | prepend: site.baseurl }}" alt=""> 
 
 
 
@@ -883,7 +883,7 @@ plt.axhline(y=80, color='green')
 ax.set_title('', y=1.1);
 {% endhighlight %}
 
-<img src="{{ '/img/Titanic_files/Titanic_65_0.png' | prepend: site.baseurl }}" alt=""> 
+<img src="{{ '/assets/img/Titanic_files/Titanic_65_0.png' | prepend: site.baseurl }}" alt=""> 
 
 
 That is for these passengers, the most likely scenario is that their port of embarking was 'c', which corresponds to Cherbourg. But is this correct? this seems reasonable just by reading from the Data, but it is usually better to look for "real" sources to complete the data, for example in [Encyclopedia Titanica](https://www.encyclopedia-titanica.org/titanic-survivor/martha-evelyn-stone.html) we can find info about the passengers. For this case we have that Amelie Icard was Mrs. Stone maid and they boarded in Southampton, that is the port of embarking should be 'S'.
@@ -1728,7 +1728,7 @@ allData.Age.plot(kind='kde', label='All Data after prediction of Ages', alpha=al
 plt.legend(loc='best');
 {% endhighlight %}
 
-<img src="{{ '/img/Titanic_files/Titanic_136_0.png' | prepend: site.baseurl }}" alt=""> 
+<img src="{{ '/assets/img/Titanic_files/Titanic_136_0.png' | prepend: site.baseurl }}" alt=""> 
 
 
 Finally, let's put this results back in the train and test dataFrames.
@@ -1950,7 +1950,7 @@ plot_learning_curve(clf_knn, 'KNN', X, Y, cv=4);
 {% endhighlight %}
 
 
-<img src="{{ '/img/Titanic_files/Titanic_177_0.png' | prepend: site.baseurl }}" alt=""> 
+<img src="{{ '/assets/img/Titanic_files/Titanic_177_0.png' | prepend: site.baseurl }}" alt=""> 
 
 
 ## Random Forest
@@ -1986,7 +1986,7 @@ The learning curve graph is
 plot_learning_curve(clf_rfc1, 'Random Forest', X, Y, cv=4);
 {% endhighlight %}
 
-<img src="{{ '/img/Titanic_files/Titanic_184_0.png' | prepend: site.baseurl }}" alt=""> 
+<img src="{{ '/assets/img/Titanic_files/Titanic_184_0.png' | prepend: site.baseurl }}" alt=""> 
 
 This isn't pretty good, can we improve this? Let's check how many features contributed more than 0.1%.
 
@@ -2043,7 +2043,7 @@ plot_learning_curve(clf_rfc2, 'Random Forest', X[cols], Y, cv=4);
 {% endhighlight %}
 
 
-<img src="{{ '/img/Titanic_files/Titanic_194_0.png' | prepend: site.baseurl }}" alt=""> 
+<img src="{{ '/assets/img/Titanic_files/Titanic_194_0.png' | prepend: site.baseurl }}" alt=""> 
 
 
 
@@ -2081,7 +2081,7 @@ plot_learning_curve(clf_lg, 'Logistic Regression', X, Y, cv=4);
 {% endhighlight %}
 
 
-<img src="{{ '/img/Titanic_files/Titanic_201_0.png' | prepend: site.baseurl }}" alt=""> 
+<img src="{{ '/assets/img/Titanic_files/Titanic_201_0.png' | prepend: site.baseurl }}" alt=""> 
 
 
 
@@ -2120,7 +2120,7 @@ plot_learning_curve(clf_svc, 'SVC', X, Y, cv=4);
 {% endhighlight %}
 
 
-<img src="{{ '/img/Titanic_files/Titanic_208_0.png' | prepend: site.baseurl }}" alt=""> 
+<img src="{{ '/assets/img/Titanic_files/Titanic_208_0.png' | prepend: site.baseurl }}" alt=""> 
 
 
 
@@ -2158,7 +2158,7 @@ And a learning curve
 plot_learning_curve(clf_vc, 'Voting Classifier', X, Y, cv=4);
 {% endhighlight %}
 
-<img src="{{ '/img/Titanic_files/Titanic_215_0.png' | prepend: site.baseurl }}" alt=""> 
+<img src="{{ '/assets/img/Titanic_files/Titanic_215_0.png' | prepend: site.baseurl }}" alt=""> 
 
 
 # Conclusion
