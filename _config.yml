@@ -1,0 +1,28 @@
+title: Puppy's Place
+description: A resting place for Puppy.
+
+url: http://scy1505.github.io
+baseurl: ""
+paginate_path: "blog/page:num/"
+permalink: blog/:title/
+
+markdown: kramdown
+highlighter: rouge
+gems: [jekyll-paginate]
+paginate: 5
+
+navigation:
+ - title: Home
+   url: /index.html
+ - title: About
+   url: /about
+ - title: Contact
+   url: /contact
+
+social:
+   github: scy1505
+   twitter: juan1505
+   facebook: juan1505
+   email: juan1505@gmail.com
+
+google_analytics: "UA-58263416-1"
