@@ -5,16 +5,14 @@
     <description>A resting place for Puppy.</description>
     <link>http://scy1505.github.io/</link>
     <atom:link href="http://scy1505.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 27 Nov 2016 21:03:26 -0500</pubDate>
-    <lastBuildDate>Sun, 27 Nov 2016 21:03:26 -0500</lastBuildDate>
+    <pubDate>Sun, 27 Nov 2016 21:44:53 -0500</pubDate>
+    <lastBuildDate>Sun, 27 Nov 2016 21:44:53 -0500</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       
       <item>
         <title>The K-armed Bandit</title>
-        <description>&lt;h1 id=&quot;k-armed-bandit&quot;&gt;K-armed Bandit&lt;/h1&gt;
-
-&lt;p&gt;The &lt;script type=&quot;math/tex&quot;&gt;K&lt;/script&gt;-armed bandit game has many variants, but all of them reduce to making a choice among &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt;-different ones. More precesily, suppose that you have &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; doors, and behind each door there is a rewad. Assume that the expected reward after choosing the door &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt; is given by &lt;script type=&quot;math/tex&quot;&gt;q_*(a)=\mathbb{E}(R|_{A=a}),&lt;/script&gt; and that you don’t know &lt;script type=&quot;math/tex&quot;&gt;q_*&lt;/script&gt; nor the probability distribution.
+        <description>&lt;p&gt;The &lt;script type=&quot;math/tex&quot;&gt;K&lt;/script&gt;-armed bandit game has many variants, but all of them reduce to making a choice among &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt;-different ones. More precesily, suppose that you have &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; doors, and behind each door there is a rewad. Assume that the expected reward after choosing the door &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt; is given by &lt;script type=&quot;math/tex&quot;&gt;q_*(a)=\mathbb{E}(R|_{A=a}),&lt;/script&gt; and that you don’t know &lt;script type=&quot;math/tex&quot;&gt;q_*&lt;/script&gt; nor the probability distribution.
 Now suppose that you play this game several times. How do we maximize our total reward?&lt;/p&gt;
 
 &lt;p&gt;To do this, we need to create a function that keeps track of our expectation at step &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt;, that is, we want a function &lt;script type=&quot;math/tex&quot;&gt;Q_t(a)\approx q_*(a)&lt;/script&gt;.&lt;/p&gt;
@@ -118,7 +116,8 @@ Now suppose that you play this game several times. How do we maximize our total 
 &lt;/center&gt;
 </description>
         
-          <description>&lt;h1 id=&quot;k-armed-bandit&quot;&gt;K-armed Bandit&lt;/h1&gt;
+          <description>&lt;p&gt;The &lt;script type=&quot;math/tex&quot;&gt;K&lt;/script&gt;-armed bandit game has many variants, but all of them reduce to making a choice among &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt;-different ones. More precesily, suppose that you have &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; doors, and behind each door there is a rewad. Assume that the expected reward after choosing the door &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt; is given by &lt;script type=&quot;math/tex&quot;&gt;q_*(a)=\mathbb{E}(R|_{A=a}),&lt;/script&gt; and that you don’t know &lt;script type=&quot;math/tex&quot;&gt;q_*&lt;/script&gt; nor the probability distribution.
+Now suppose that you play this game several times. How do we maximize our total reward?&lt;/p&gt;
 
 </description>
         

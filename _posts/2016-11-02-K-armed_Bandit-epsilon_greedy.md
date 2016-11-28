@@ -5,8 +5,6 @@ date:   2016-11-02
 ---
 
 
-# K-armed Bandit
-
 The $$K$$-armed bandit game has many variants, but all of them reduce to making a choice among $$k$$-different ones. More precesily, suppose that you have $$k$$ doors, and behind each door there is a rewad. Assume that the expected reward after choosing the door $$a$$ is given by $$q_*(a)=\mathbb{E}(R|_{A=a}),$$ and that you don't know $$q_*$$ nor the probability distribution.
 Now suppose that you play this game several times. How do we maximize our total reward?
 

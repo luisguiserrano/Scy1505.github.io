@@ -161,12 +161,14 @@ POST STYLING
 		@include span(11 of 12); 
 		float: none;
 		margin: 0 auto 2rem; 
+
 	}
 
-	h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+	h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, .pageTitle {
 
 
 		margin: 1rem auto; 
+		color: #5B0000;
 	}
 
 
@@ -253,6 +255,9 @@ CONTACT PAGE STYLING
 	@include span(6 of 12 last);
 }
 #contact {
+	h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, {
+		color: #5B0000;
+	}
 	form {
 		@include span(6 of 12 last);
 	}
@@ -262,7 +267,11 @@ CONTACT PAGE STYLING
 RESEARCH PAGE STYLING
 ***************/
 
-
+#research_content {
+	h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, {
+		color: #5B0000;
+	}
+}
 
 .research_content {
 	@include span(6 of 12);

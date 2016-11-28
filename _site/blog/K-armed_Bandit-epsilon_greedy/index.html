@@ -88,9 +88,7 @@ ga('send', 'pageview');
   <h1 class="postTitle">The K-armed Bandit</h1>
   <p class="meta">November 02, 2016 | <span class="time">5</span> Minute Read</p>
   
-  <h1 id="k-armed-bandit">K-armed Bandit</h1>
-
-<p>The <script type="math/tex">K</script>-armed bandit game has many variants, but all of them reduce to making a choice among <script type="math/tex">k</script>-different ones. More precesily, suppose that you have <script type="math/tex">k</script> doors, and behind each door there is a rewad. Assume that the expected reward after choosing the door <script type="math/tex">a</script> is given by <script type="math/tex">q_*(a)=\mathbb{E}(R|_{A=a}),</script> and that you don’t know <script type="math/tex">q_*</script> nor the probability distribution.
+  <p>The <script type="math/tex">K</script>-armed bandit game has many variants, but all of them reduce to making a choice among <script type="math/tex">k</script>-different ones. More precesily, suppose that you have <script type="math/tex">k</script> doors, and behind each door there is a rewad. Assume that the expected reward after choosing the door <script type="math/tex">a</script> is given by <script type="math/tex">q_*(a)=\mathbb{E}(R|_{A=a}),</script> and that you don’t know <script type="math/tex">q_*</script> nor the probability distribution.
 Now suppose that you play this game several times. How do we maximize our total reward?</p>
 
 <p>To do this, we need to create a function that keeps track of our expectation at step <script type="math/tex">t</script>, that is, we want a function <script type="math/tex">Q_t(a)\approx q_*(a)</script>.</p>
