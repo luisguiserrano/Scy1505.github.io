@@ -232,10 +232,13 @@ FOOTER STYLES
 CONTACT PAGE STYLING
 ***************/
 
-.contactContent {
+.contact_content {
 	@include span(6 of 12);
 }
 
+.contact_picture{
+	@include span(6 of 12 last);
+}
 #contact {
 	form {
 		@include span(6 of 12 last);

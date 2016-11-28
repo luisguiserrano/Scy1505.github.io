@@ -37,8 +37,10 @@ title: Research
 		</center>
 		
 		<div class="quote">
-			<p><sub>
-				 "Thoughts without content are empty, intuitions without concepts are blind. The understanding can intuit nothing, the senses can think nothing. Only through their unison can knowledge arise."- <i> Immanuel Kant </i> </sub>
+			<p>
+				<center><sub>
+					Stone Forest.
+				</sub></center>
 			</p>
 		</div>
 	</div>

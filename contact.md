@@ -5,7 +5,7 @@ title: Contact Long Haul
 
 <div id="contact">
   <h1 class="pageTitle">Contact Me</h1>
-  <div class="contactContent">
+  <div class="contact_content">
     <h4 class="intro"> Email:</h4>
     <p> <a href="mailto:juan1505@gmail.com"> juan1505@gmail.com </a></p>
     <h4 class="intro"> Office:</h4>
@@ -22,13 +22,27 @@ title: Contact Long Haul
     </p>
   </div>
 
-<form method="POST" action="http://formspree.io/juan1505@gmail.com">
+  <div class="contact_picture">
+    <center>
+      <img src="/assets/img/contact_picture.jpg" alt="Img">
+    </center>
+    
+    <div class="quote">
+      <p>
+        <center><sub>
+          Jade Dragon Snow Mountain 
+        </sub></center>
+      </p>
+    </div>
+  </div>
+
+<!--<form method="POST" action="http://formspree.io/juan1505@gmail.com">
   <label for="email">Email Address</label>
   <input type="email" name="email" placeholder="Your email">
   <label for="message">Message</label>
   <textarea name="message" placeholder="Your message"></textarea><br>
   <button type="submit" class="button">Send</button>
-</form>
+</form>-->
 
 </div>
  
