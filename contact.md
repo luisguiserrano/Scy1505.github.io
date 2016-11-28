@@ -6,17 +6,29 @@ title: Contact Long Haul
 <div id="contact">
   <h1 class="pageTitle">Contact Me</h1>
   <div class="contactContent">
-    <p class="intro">This is an example Contact page. If you want to make changes then do so in the <code>contact.html</code> file.</p>
-    <p>The form is provided by <a href="http://formspree.io/">Formspree.</a> Follow the directions on their site to set up the form for use.</p>
-    <p>If you have questions about the theme feel free to <a href="mailto:brimaidesigns@gmail.com">email me</a> or create an issue on <a href="https://github.com/brianmaierjr/long-haul">GitHub</a>. Enjoy!</p>
+    <h4 class="intro"> Email:</h4>
+    <p> <a href="mailto:juan1505@gmail.com"> juan1505@gmail.com </a></p>
+    <h4 class="intro"> Office:</h4>
+
+    <p> 740 College of Education <br>
+      Office phone: +1-404-413-6405
+    </p>
+    <h4 class="intro"> Postal Address: </h4>
+    <p> Department of Mathematics & Statistics <br>
+        Georgia State University <br>
+        750 College of Education Building <br>
+        30 Pryor St SW <br>
+        Atlanta, GA 30303-3083 USA <br>
+    </p>
   </div>
-  <form action="http://formspree.io/juan1505@mail.com" method="POST">
-    <label for="name">Name</label>    
-    <input type="text" id="name" name="name" class="full-width"><br>
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="_replyto" class="full-width"><br>
-    <label for="message">Message</label>
-    <textarea name="message" id="message" cols="30" rows="10" class="full-width"></textarea><br>
-    <input type="submit" value="Send" class="button">
-  </form>
+
+<form method="POST" action="http://formspree.io/juan1505@gmail.com">
+  <label for="email">Email Address</label>
+  <input type="email" name="email" placeholder="Your email">
+  <label for="message">Message</label>
+  <textarea name="message" placeholder="Your message"></textarea><br>
+  <button type="submit" class="button">Send</button>
+</form>
+
 </div>
+ 

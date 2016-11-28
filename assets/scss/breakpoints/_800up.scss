@@ -242,3 +242,26 @@ CONTACT PAGE STYLING
 	}
 }
 
+/***************
+RESEARCH PAGE STYLING
+***************/
+
+.research_content {
+	@include span(6 of 12);
+}
+.research_picture {
+	@include span(6 of 12 last);
+}
+
+/***************
+ABOUT PAGE STYLING
+***************/
+
+
+.About_Image {
+	@include span(6 of 12);
+}
+
+.About_content {
+	@include span(5 at 8 of 12);
+}

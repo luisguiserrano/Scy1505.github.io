@@ -18,8 +18,11 @@ navigation:
    url: /about
  - title: Contact
    url: /contact
+ - title: Research
+   url: /research 
  - title: Posts
    url: /articles
+
 
 social:
    github: scy1505
