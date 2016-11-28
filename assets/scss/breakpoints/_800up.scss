@@ -36,7 +36,9 @@ GLOBAL STYLES
 	padding: 0;
 }
 
-
+.pageTitle {
+	color: #5B0000;
+}
 
 
 /***************
@@ -49,12 +51,16 @@ HOMEPAGE STYLING
 		float: none;
 		margin: 0 auto 1.5em;
 	}
+	h1 {
+	 color: #5B0000;
+	}
 
 	.pageTitle {
 		margin: 2rem auto 1em;
 	}
 	
 }
+
 
 
 /***************
@@ -68,7 +74,8 @@ HEADER STYLING
 
 	.container {
 		position: relative;
-		top: 50%;
+		top: 70%;
+		\\left: -10%;
 		-webkit-transform: translateY(-50%);
 		-ms-transform: translateY(-50%);
 		transform: translateY(-50%);
@@ -76,11 +83,15 @@ HEADER STYLING
 	}
 
 	h1 {
+		
 		font-size: 3em;
 		line-height: 1;
 		letter-spacing: -3px;
 		padding-left: 0;
+
 	}
+
+	
 
 	nav {
 		float: left;
@@ -96,13 +107,13 @@ HEADER STYLING
 				border: none;
 
 				a {
-					color: white;
+					color: #5B0000; \\color: white;
 					font-size: .9em;
 					text-decoration: none;
 					padding: 0 .25em;
 
 					&:hover {
-						color: darken(white, 20%);
+						color: lighten( #5B0000,20%); \color: darken(white, 20%);
 					}
 				}
 
@@ -154,8 +165,10 @@ POST STYLING
 
 	h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 
+
 		margin: 1rem auto; 
 	}
+
 
 	.pageTitle {
 		margin: 2rem auto 1em;
@@ -248,6 +261,8 @@ CONTACT PAGE STYLING
 /***************
 RESEARCH PAGE STYLING
 ***************/
+
+
 
 .research_content {
 	@include span(6 of 12);
