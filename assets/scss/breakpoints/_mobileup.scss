@@ -10,6 +10,10 @@ html {
   box-sizing: inherit;
 }
 
+.pageTitle{
+	color: #5B0000;
+}
+
 body {
 	font-family: $serif;
 	line-height: 1.75;
@@ -216,7 +220,13 @@ POST STYLING
 		text-align: center;
 		margin-top: 2rem;
 		margin-bottom: 1rem;
+		color: #5B0000;
 	}
+
+	h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, .pageTitle {
+		color: #5B0000;
+	}
+
 
 	blockquote {
 		clear: both;
@@ -492,4 +502,11 @@ POST LIST STYLING
 			margin: 0 0 .5em;
 		}
 	}
+}
+
+/***************
+INTRO LIST STYLING
+***************/
+.intro{
+	color: #5B0000;
 }
