@@ -92,11 +92,11 @@ ga('send', 'pageview');
 
 <h1 id="section-1-introduction">Section 1: Introduction</h1>
 
-<p>The goal of neural nets is to train neurons, such that the network learn to perfoform complext operations. In order to made this clear, we need to understand what a neuron is, what are the different models for a neuron, and how to train them.</p>
+<p>The goal of neural nets is to train neurons, such that the network learn to perform complex operations. In order to made this clear, we need to understand what a neuron is, what are the different models for a neuron, and how to train them.</p>
 
 <h2 id="models-for-neurons">1.1 Models for Neurons.</h2>
 
-<p>In essence, neurons are objects that for an input <script type="math/tex">(x_1,\ldots,x_n)</script> has an output <script type="math/tex">y</script>. A training set is a collection of inputs and corresponding outpuuts, a neuron is trained by the training set by finding the appropiate parameters that defined the neuron. There are several model for neurons. We study some of the basic ones next.</p>
+<p>In essence, neurons are objects that for an input <script type="math/tex">(x_1,\ldots,x_n)</script> has an output <script type="math/tex">y</script>. A training set is a collection of inputs and corresponding outputs, a neuron is trained by the training set by finding the appropriate parameters that defined the neuron. There are several model for neurons. We study some of the basic ones next.</p>
 
 <center><img src="/assets/img/neural_nets_1_files/image.png" alt="" /> </center>
 
@@ -276,7 +276,7 @@ and we want to find the right weights $w_1,\ldots,w_n$. As we the linear case we
 
 <script type="math/tex; mode=display">\boldsymbol{w_{t+1}}=\boldsymbol{w_{t}}+\Delta \boldsymbol{w_t}=\boldsymbol{w_{t}}- \epsilon\sum_i \boldsymbol{x_i} \left( \frac{1}{1+e^{-\boldsymbol{w}\cdot \boldsymbol{x_i}}} \right)\left( 1-\frac{1}{1+e^{-\boldsymbol{w}\cdot \boldsymbol{x_i}}} \right) \left(y_i- \frac{1}{1+e^{-\boldsymbol{w}\cdot \boldsymbol{x_i}}} \right)</script>
 
-<p>As above we could use a online training or a mini-batch, we leave the details to the reader.</p>
+<p>As above we could use a on-line training or a mini-batch, we leave the details to the reader.</p>
 
 <h1 id="neural-networks">2. Neural Networks</h1>
 
@@ -288,7 +288,7 @@ and we want to find the right weights $w_1,\ldots,w_n$. As we the linear case we
 
 <center><img src="/assets/img/neural_nets_1_files/image.png" alt="" /> </center>
 
-<p>Back propagation is a technique to compute the local gradient efficiently, that is by how much the weights in each unit must change. The general explanation requieres some (annoying) notation, in order to make the ideas clear we consider a smaller case and let the reader imaging the general case. Consider the network given by the next figure.</p>
+<p>Back propagation is a technique to compute the local gradient efficiently, that is by how much the weights in each unit must change. The general explanation requires some (annoying) notation, in order to make the ideas clear we consider a smaller case and let the reader imaging the general case. Consider the network given by the next figure.</p>
 
 <center> <img src="/assets/img/neural_nets_1_files/image.png" alt="" /> </center>
 
@@ -324,7 +324,7 @@ and we can compute the earlier errors from the later ones. We can use this, plus
   <!-- POST NAVIGATION -->
   <div class="postNav clearfix">
      
-      <a class="prev" href="/blog/Titanicmd/"><span>&laquo;&nbsp;A data manual for Baobei - The Titanic Data Example</span>
+      <a class="prev" href="/blog/Titanicmd/"><span>&laquo;&nbsp;An intro to the most basic Machine Learning techniques through the Kaggle Example</span>
       
     </a>
       

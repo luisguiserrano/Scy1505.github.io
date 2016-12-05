@@ -15,11 +15,11 @@ This notebook and the ones following are design to cover the basics of neural ne
 
 # Section 1: Introduction
 
-The goal of neural nets is to train neurons, such that the network learn to perfoform complext operations. In order to made this clear, we need to understand what a neuron is, what are the different models for a neuron, and how to train them.
+The goal of neural nets is to train neurons, such that the network learn to perform complex operations. In order to made this clear, we need to understand what a neuron is, what are the different models for a neuron, and how to train them.
 
 ## 1.1 Models for Neurons.
 
-In essence, neurons are objects that for an input $$(x_1,\ldots,x_n)$$ has an output $$y$$. A training set is a collection of inputs and corresponding outpuuts, a neuron is trained by the training set by finding the appropiate parameters that defined the neuron. There are several model for neurons. We study some of the basic ones next.
+In essence, neurons are objects that for an input $$(x_1,\ldots,x_n)$$ has an output $$y$$. A training set is a collection of inputs and corresponding outputs, a neuron is trained by the training set by finding the appropriate parameters that defined the neuron. There are several model for neurons. We study some of the basic ones next.
 
 <center><img src="{{ '/assets/img/neural_nets_1_files/image.png' | prepend: site.baseurl }}" alt=""> </center>
 
@@ -216,7 +216,7 @@ And so the updating process  would go as
 
 $$ \boldsymbol{w_{t+1}}=\boldsymbol{w_{t}}+\Delta \boldsymbol{w_t}=\boldsymbol{w_{t}}- \epsilon\sum_i \boldsymbol{x_i} \left( \frac{1}{1+e^{-\boldsymbol{w}\cdot \boldsymbol{x_i}}} \right)\left( 1-\frac{1}{1+e^{-\boldsymbol{w}\cdot \boldsymbol{x_i}}} \right) \left(y_i- \frac{1}{1+e^{-\boldsymbol{w}\cdot \boldsymbol{x_i}}} \right) $$
 
-As above we could use a online training or a mini-batch, we leave the details to the reader.
+As above we could use a on-line training or a mini-batch, we leave the details to the reader.
 
 # 2. Neural Networks
 
@@ -229,7 +229,7 @@ We assume that the neural network is feedforward, this basically means that ther
 <center><img src="{{ '/assets/img/neural_nets_1_files/image.png' | prepend: site.baseurl }}" alt=""> </center>
 
 
-Back propagation is a technique to compute the local gradient efficiently, that is by how much the weights in each unit must change. The general explanation requieres some (annoying) notation, in order to make the ideas clear we consider a smaller case and let the reader imaging the general case. Consider the network given by the next figure.
+Back propagation is a technique to compute the local gradient efficiently, that is by how much the weights in each unit must change. The general explanation requires some (annoying) notation, in order to make the ideas clear we consider a smaller case and let the reader imaging the general case. Consider the network given by the next figure.
 
 <center> <img src="{{ '/assets/img/neural_nets_1_files/image.png' | prepend: site.baseurl }}" alt=""> </center>
 

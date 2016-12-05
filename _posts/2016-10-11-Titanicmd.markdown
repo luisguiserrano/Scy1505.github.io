@@ -1,22 +1,30 @@
 ---
 layout: post
-title:  "A data manual for Baobei - The Titanic Data Example"
+title:  "An intro to the most basic Machine Learning techniques through the Kaggle Example"
 date:   2016-10-11
 published: true
 ---
 
 
 
-Hi Baobei, 
+[comment]: <> (Hi Baobei, 
 
-The puppy scientific learning community is happy to have you on board with this course in the basic techniques of Machine Learning. So, Welcome!
+The puppy scientific learning community is happy to have you on board with this course in the basic techniques of Machine Learning. So, Welcome!)
+
+When learning data sciences, we are usually faced with the difficult choice of knowing where to learn. Luckily for us, the Internet has a huge amount of resources for all levels. Most people end up taking online classes like the ones in [Coursera](https://www.coursera.org/), [edx](https://www.edx.org/), or [Udacity](https://www.udacity.com/), and eventually walk their way to [Kaggle](https://www.kaggle.com/). Before getting into it, I want to mention the there are more advance resource out there and I will write about this in subsequent posts, but some of my favorites are [CS231n: Convolutional Neural Networks for Visual Recognition.](http://cs231n.github.io/)  and [UCL Course on RL](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html).
+
+When starting with Kaggle the first example you ought to go through is the Titanic Example, the goal is to use the techniques, that you already know, to predict the likeness of a passenger to survive. We do this next.
+
 
 ## The Titanic Data
 
-The RMS Titanic was a ship that sunk in 1912. The failure to have proper safety procedures and equipement led to a huge loss of life. Our goal is to find the features of a person that is more likely to survived. Before talking about the data set let's load the packages we will need:
+The RMS Titanic was a ship that sunk in 1912. The failure to have proper safety procedures and equipment led to a huge loss of life. Our goal is to find the features of a person that is more likely to have survived. 
+
+Before talking about the data, we need to import some standard packages:
+
 - numpy: Allows to deal with scientific computations.
 - pandas: Helps dealing with datasets, series, and data related stuff.
-- sklearn: Short for scientific kit for learning, contains several methods for machine learning. Quite useful!
+- sklearn: Short for scientific kit for learning, contains several methods for (basic) machine learning. Quite useful!
 - matplotlib: Package for plotting graphs and visualization of data.
 
 
@@ -26,10 +34,20 @@ import pandas as pd
 import sklearn.linear_model as lm
 from sklearn.model_selection import GridSearchCV
 import matplotlib.pyplot as plt
-%matplotlib inline
+
 {% endhighlight %}
 
-The last line here %matplotlib inline allows for the matplotlib graphs to appear in line. We now load the data.
+If you are working in an Ipython Notebook, you want to add the line 
+
+{% highlight ruby %} 
+
+%matplotlib inline 
+
+{% endhighlight %}
+
+which allows for the matplotlib graphs to appear in line. 
+
+Our data is contained in two comma-separated values (cvs) files, and we can read the data via the panda package as follows.
 
 
 {% highlight ruby %}
@@ -37,7 +55,7 @@ train = pd.read_csv('train.csv')
 test = pd.read_csv('test.csv')
 {% endhighlight %}
 
-The data is load from a csv (comma separated value) file, a database file extension compatible with most systems. The data is saved in an object from the Pandas package call DataFrame.
+The data is saved in an object from the Pandas package call DataFrame.
 
 
 {% highlight ruby %}
@@ -45,15 +63,17 @@ type(train)
 {% endhighlight %}
 
 
-
-
     pandas.core.frame.DataFrame
 
 
 
-Also note that the data came in two files. It is common in machine learning to divide the data into two parts, one for training and one for testing. In this case it was divided by 2/3 for training and 1/3 for testing. (This is a little more uncommon, usually some percentage of the data is use for testing, I think the reason of the choice in this case is because the data set has a small size). I also want to mention that in general is not a good idea to divide the data arbitrarly, there are several tools in the sklearn library to split the data such that the test set is as representative of the whole data as possible (More abbout this in other notebook).
+The data is divided into two parts; the training data, and the testing data. This is a common practice. You should always divide your data into a training and testing, and *only* use the testing data at the end. 
 
-Now that we got the data, we would like to know how it looks like. We can use the method [DataFrame.describe()](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.describe.html)  to do this. 
+Depending of the amount of data that is available you may choose between 10% to 30% for testing (We will see later that there is a further division that must be made to tune the parameters, this is done in the process of validation or cross-validation).
+
+This division must be made with care, trying to preserve the homogeneity of the data in both parts, that is making sure that the training and testing are representative of the data as a whole. sklearn has several tools appropriated for this tasks, for example [this](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html#sklearn.model_selection.train_test_split).
+
+ Let's take a peek at the data. The method [DataFrame.describe()](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.describe.html) is design for this purpose. 
 
 
 {% highlight ruby %}
@@ -263,8 +283,15 @@ test.describe()
 </div>
 
 
+ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
 
-This gives the info for both DataFrames, note that there are 891 passangers in the train dataset and 418 in the test dataset. Furthermore, we get the basic info like the mean, standard deviation, etc. 
+
+
+This gives the info for both DataFrames, note that there are 891 passengers in the train dataset and 418 in the test dataset. Furthermore, we get the basic info like the mean, standard deviation, etc. 
 
 But how does the data looks like? We can check the whole data by typing it. That is just typing train (Try it!). But this would look clutter, so instead we can get a sample by using the [method DataFrame.head()](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.head.html) or [method DataFrame.tail()](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.tail.html)
 
@@ -428,7 +455,7 @@ The first thing we notice is that the feature "Survived' appears in the train Da
 
 ### Making the graphs look nice 
 
-The matplotlib library is very versitile and will let us create beautiful graphs. Furthermore, the panda library uses the matplotlib and increases the type of graphs we can create. We first set some global parameters for the matplotlib, we can use the method [matplotlib.rc()](http://matplotlib.org/users/customizing.html) to do this.
+The matplotlib library is very versatile and will let us create beautiful graphs. Furthermore, the panda library uses the matplotlib and increases the type of graphs we can create. We first set some global parameters for the matplotlib, we can use the method [matplotlib.rc()](http://matplotlib.org/users/customizing.html) to do this.
 
 
 {% highlight ruby %}
@@ -494,8 +521,8 @@ train.Pclass.value_counts(normalize=True).sort_index().plot(kind='bar', color='#
 test.Pclass.value_counts(normalize=True).sort_index().plot(kind='bar', label='test', alpha=alpha)
 
 # Places the labes to the axis an graph
-ax0.set_xlabel('Passanger Classs')
-ax0.set_title('Passanger ratio by Class')
+ax0.set_xlabel('Passenger Classs')
+ax0.set_title('Passenger ratio by Class')
 
 #place the legend in the best possible position
 ax0.legend(loc='best')
@@ -507,9 +534,9 @@ ax1 = plt.subplot2grid((1,3), (0,1))
 train.Sex.value_counts(normalize=True).sort_index().plot(kind='bar', color='#FA2379', label='train', alpha=alpha)
 test.Sex.value_counts(normalize=True).sort_index().plot(kind='bar', label='test', alpha=alpha)
 
-# Places the labes to the axis an graph
+# Places the labels to the axis an graph
 ax1.set_xlabel('Sex')
-ax1.set_title('Passanger ratio by Sex')
+ax1.set_title('Passenger ratio by Sex')
 
 #place the legend in the best possible position
 ax1.legend(loc='best')
@@ -521,9 +548,9 @@ ax2 = plt.subplot2grid((1,3), (0,2))
 train.Embarked.value_counts(normalize=True).sort_index().plot(kind='bar', color='#FA2379', label='train', alpha=alpha)
 test.Embarked.value_counts(normalize=True).sort_index().plot(kind='bar', label='test', alpha=alpha)
 
-# Places the labes to the axis an graph
+# Places the labels to the axis an graph
 ax2.set_xlabel('Embarked')
-ax2.set_title('Passanger ratio by Embarked')
+ax2.set_title('Passenger ratio by Embarked')
 
 #place the legend in the best possible position
 ax2.legend(loc='best');
@@ -658,7 +685,7 @@ This give us the outcome that if female the chances are about 2/3 of surviving m
 
 ### Survival with respect to class
 
-This is another likely factor into surival, so it is worth taking a look at it. Let's plot what were the survival ratios in each of the classes.
+This is another likely factor into survival, so it is worth taking a look at it. Let's plot what were the survival ratios in each of the classes.
 
 
 {% highlight ruby %}
@@ -689,7 +716,7 @@ ax0.set_xlabel('1: Survived\n 0: Did not survive');
 
 
 
-This clearly shows that people in upper classes had a highest chance of survival. But how do males and females survivale compares in each classs? We create DataFrames with only males and one with other males to find this out.
+This clearly shows that people in upper classes had a highest chance of survival. But how do males and females survival compares in each class? We create DataFrames with only males and one with other males to find this out.
 
 
 {% highlight ruby %}
@@ -954,7 +981,7 @@ test[test.Fare.isnull()==True]
 
 
 
-We have several options for the Fare. The mean, the most common value, or the fifty percentile. Let's find these values for passangers in third class embarked at Southampton (Embarked='S'). First the most common value:
+We have several options for the Fare. The mean, the most common value, or the fifty percentile. Let's find these values for passengers in third class embarked at Southampton (Embarked='S'). First the most common value:
 
 
 {% highlight ruby %}
@@ -1454,7 +1481,7 @@ Note that the Name Feature contains more information. The title: like Mr, Mrs, D
 
 ### Features from text
 
-There are many tools to mine info out of text, most of them use regular expresion. We load the python package to handle regular expressions. 
+There are many tools to mine info out of text, most of them use regular expression. We load the python package to handle regular expressions. 
 
 
 {% highlight ruby %}
@@ -1641,7 +1668,7 @@ from sklearn.ensemble import AdaBoostRegressor
 model=AdaBoostRegressor(random_state=13)
 {% endhighlight %}
 
-In order to make sure we get thhe best classifier we use GridSearchCV to find the parameters that will give us the best fit.
+In order to make sure we get the best classifier we use GridSearchCV to find the parameters that will give us the best fit.
 
 
 {% highlight ruby %}
@@ -1665,7 +1692,7 @@ ageClas.score(X_test,Y_test)
 ---
 
 
-This is not pretty good, but it would be difficult to acchieve better accuracy with such a small data set and not much relevant data to age. Let's see what features were more important. We first find what was the best classifier that the GridSSearch found.
+This is not pretty good, but it would be difficult to achieve better accuracy with such a small data set and not much relevant data to age. Let's see what features were more important. We first find what was the best classifier that the GridSSearch found.
 
 
 {% highlight ruby %}
@@ -1701,7 +1728,7 @@ model2.feature_importances_
 
 
 
-this gives the third and twelve features as the most important ones. This correspond to Siblings, the fact if the person have a title of Mr. and if it has a title of Sir. Let's use this regressor to give the unknown values to Age.
+this gives the third and twelve features as the most important ones. This correspond to Siblings, the fact if the person have a title of Mr. and if it has a title of Sir. Let's use this regressors to give the unknown values to Age.
 
 
 {% highlight ruby %}
@@ -2163,7 +2190,7 @@ plot_learning_curve(clf_vc, 'Voting Classifier', X, Y, cv=4);
 
 # Conclusion
 
-We can create classifiers that predict surival with an accuracy > .8. 
+We can create classifiers that predict survival with an accuracy > .8. 
 
 # Submission
 
