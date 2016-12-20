@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title>Posts</title>
+    <title>Singularities</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
@@ -20,7 +20,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/assets/css/style.css">
     <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
-    <link rel="canonical" href="http://scy1505.github.io/articles/">
+    <link rel="canonical" href="http://scy1505.github.io/blog/Singularities/">
 
     <!-- Modernizr -->
     <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
@@ -64,7 +64,7 @@ ga('send', 'pageview');
                      <a href="/research">Research</a>
                  </li> 
                  
-                 <li class="element  current last">
+                 <li class="element   last">
                      <a href="/articles">Posts</a>
                  </li> 
                  
@@ -83,84 +83,53 @@ ga('send', 'pageview');
 
    		
 		 <div class="container">
-        	 <div id="articles">
-  <h1 class="pageTitle">General</h1>
-  <ul class="posts noList">
-    
-      <li>
-      	<span class="date">20 Oct 2016</span>
-      	<h3><a href="/blog/First-NN/">A Neural Networks from scratch</a></h3>
-      	<p class="description">We write a short and relly basic neural network. There are many from scracth neural networks outthere, one I particul...</p>
-      </li>
-    
-      <li>
-      	<span class="date">19 Oct 2016</span>
-      	<h3><a href="/blog/neural-nets/">Neural Networks</a></h3>
-      	<p class="description">This notebook and the ones following are design to cover the basics of neural networks in python.Section 1: Introduct...</p>
-      </li>
-    
-      <li>
-      	<span class="date">11 Oct 2016</span>
-      	<h3><a href="/blog/Titanicmd/">An intro to the most basic Machine Learning techniques through the Kaggle Example</a></h3>
-      	<p class="description">The puppy scientific learning community is happy to have you on board with this course in the basic techniques of Mac...</p>
-      </li>
-    
-  </ul>
-  <h1 class="pageTitle">Reinforcement</h1>
-  <ul class="posts noList">
-    
-      <li>
-        <span class="date">22 Nov 2016</span>
-        <h3><a href="/blog/Dynamic_Programming_2-Policy_Improvement/">Dynamic Programing 2: Policy Improvement</a></h3>
-        <p class="description">In our previous post we built a policy evaluation function. In this one we will find how to improve a given policy, t...</p>
-      </li>
-    
-      <li>
-        <span class="date">22 Nov 2016</span>
-        <h3><a href="/blog/Dynamic_Programming_1-Policy_Evaluation/">Dynamic Programing 1: Policy Evaluation</a></h3>
-        <p class="description">DP refers to a collection of algorithms to compute optiomal assuming a perfect model of the environment. Some of thei...</p>
-      </li>
-    
-      <li>
-        <span class="date">12 Nov 2016</span>
-        <h3><a href="/blog/Markov_Property/">The Markov Property</a></h3>
-        <p class="description">The goal of this notebook is to understand the first class of reinforcement learning, better known as Markov chains. ...</p>
-      </li>
-    
-      <li>
-        <span class="date">02 Nov 2016</span>
-        <h3><a href="/blog/K-armed_Bandit-epsilon_greedy/">The K-armed Bandit</a></h3>
-        <p class="description">The -armed bandit game has many variants, but all of them reduce to making a choice among -different ones. More prece...</p>
-      </li>
-    
-  </ul>
-
-  <h1 class="pageTitle">Convolutional Networks</h1>
-  <ul class="posts noList">
-    
-      <li>
-        <span class="date">05 Nov 2016</span>
-        <h3><a href="/blog/Following_Convolutional_Networks_for_Visual_Recognition_Part_1/">Following Convolutional Networks for Visual Recognition - Part 1</a></h3>
-        <p class="description">The goal of this and the following notebooks is to expand on the content of the Course of Convolutional Networks for ...</p>
-      </li>
-    
-  </ul>
-
-
-  <h1 class="pageTitle">Math and Stats</h1>
-  <ul class="posts noList">
-    
-      <li>
-        <span class="date">02 Nov 2016</span>
-        <h3><a href="/blog/Singularities/">Singularities</a></h3>
-        <p class="description">My main object of study are singularities, their invariants, and the tools used to study them. Singularities play an ...</p>
-      </li>
-    
-  </ul>
-
-
-
+        	 <div class="post">
   
+  <h1 class="postTitle">Singularities</h1>
+  <p class="meta">November 02, 2016 | <span class="time">2</span> Minute Read</p>
+  
+  <p>My main object of study are singularities, their invariants, and the tools used to study them. Singularities play an important role as they appear naturally in almost every area of mathematics, including commutative algebra, algebraic geometry, number theory, representation theory, analysis and topology. My research is focused mostly on the invariants encountered in positive characteristic and their relation/similarity with invariants appearing in characteristic zero.</p>
+
+<h2 id="singularities">Singularities</h2>
+
+<p>From the geometric point of view, a singularity corresponds to a point where a given geometric object, for example a manifold or an algebraic variety, has an unexpected tangent space. For instance, if we consider the following hypersurfaces</p>
+
+<center>
+<table border="0">
+<td align="center"><img src="/assets/img/Singularities_via_Frobenius/Sing1.png" alt="" /> </td>
+<td align="center"><img src="/assets/img/Singularities_via_Frobenius/Sing2.png" alt="" /> </td>
+<td align="center"><img src="/assets/img/Singularities_via_Frobenius/Sing3.png" alt="" /> </td>
+</table>
+</center>
+
+<p>we can see that in each case there is a special point where the tangent space is larger than expected.</p>
+
+<p>Singularities can also be detected algebraically. For example, if <script type="math/tex">f(\boldsymbol{x})</script> is a polynomial in <script type="math/tex">n</script> variables with real coefficients defining a hypersurface <script type="math/tex">X</script> in <script type="math/tex">\mathbb{R}^n</script>, then the singularities of <script type="math/tex">X</script> are given by those points <script type="math/tex">\boldsymbol{a}\in X</script> where the partial derivatives <script type="math/tex">\frac{\partial f}{\partial x_i}(\boldsymbol{a})</script> are zero for all <script type="math/tex">i</script>. For instance,  the hypersurface in the middle of the above figure corresponds to  <script type="math/tex">f=z^3-(y^2+3x^2)</script>, which has  partial derivatives <script type="math/tex">f_x=-6x</script>, <script type="math/tex">f_y=-2y</script>, and <script type="math/tex">f_z=3z^2</script>. We conclude that the only singular point is the origin, which corresponds with our geometric intuition.</p>
+
+<p>Classifying singularities has been an object of intense study in both zero and positive characteristic. In characteristic zero many invariants can be described in terms of resolutions of singularities and they are related to the minimal model program. Furthermore, many results in this setting can be approached analytically. However, in the recent decades, it has become apparent that in order to study singularities in characteristic zero, one can also reduce to positive characteristic and use Frobenius techniques to investigate singularities.</p>
+
+<h2 id="singularities-via-frobenius">Singularities via Frobenius</h2>
+
+<p>Let <script type="math/tex">R</script> be a domain of positive characteristic <script type="math/tex">p</script>. The Frobenius map <script type="math/tex">F:R\to R</script> takes an element <script type="math/tex">r</script> to <script type="math/tex">r^p</script>, therefore its image is the subring <script type="math/tex">R^p</script> consisting of all the <script type="math/tex">p</script>-th powers of elements in <script type="math/tex">R</script>. This induces on <script type="math/tex">R</script> a structure of <script type="math/tex">R^p</script>-module. It is a consequence of a theorem of Kunz that, under mild conditions, <script type="math/tex">R</script> is not singular if and only if <script type="math/tex">R</script> is a locally free <script type="math/tex">R^p</script>-module. This remarkable result tells us that we can detect singularities via the action of Frobenius. Therefore we can define different families of singularities by specifying “how close” <script type="math/tex">R</script> is to a locally free <script type="math/tex">R^p</script>-module. There are many kinds of singularities obtained by imposing restrictions on the action of Frobenius and one key feature is that they parallel the classes of singularities that have been studied in characteristic zero. The following diagram shows the relation among them and how they compare with the singularities in characteristic zero:</p>
+
+<center>
+<img src="/assets/img/Singularities_via_Frobenius/Sing.png" alt="" />
+ </center>
+
+
+  <!-- POST NAVIGATION -->
+  <div class="postNav clearfix">
+     
+      <a class="prev" href="/blog/First-NN/"><span>&laquo;&nbsp;A Neural Networks from scratch</span>
+      
+    </a>
+      
+      
+      <a class="next" href="/blog/K-armed_Bandit-epsilon_greedy/"><span>The K-armed Bandit&nbsp;&raquo;</span>
+       
+      </a>
+     
+  </div>
 </div>
 
       	</div>

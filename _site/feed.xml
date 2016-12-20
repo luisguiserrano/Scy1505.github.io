@@ -5,8 +5,8 @@
     <description>A resting place for Puppy.</description>
     <link>http://scy1505.github.io/</link>
     <atom:link href="http://scy1505.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 20 Dec 2016 13:48:01 -0500</pubDate>
-    <lastBuildDate>Tue, 20 Dec 2016 13:48:01 -0500</lastBuildDate>
+    <pubDate>Tue, 20 Dec 2016 17:38:04 -0500</pubDate>
+    <lastBuildDate>Tue, 20 Dec 2016 17:38:04 -0500</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       
@@ -1115,6 +1115,52 @@ Now suppose that you play this game several times. How do we maximize our total 
         
         
         <category>reinforcement</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Singularities</title>
+        <description>&lt;p&gt;My main object of study are singularities, their invariants, and the tools used to study them. Singularities play an important role as they appear naturally in almost every area of mathematics, including commutative algebra, algebraic geometry, number theory, representation theory, analysis and topology. My research is focused mostly on the invariants encountered in positive characteristic and their relation/similarity with invariants appearing in characteristic zero.&lt;/p&gt;
+
+&lt;h2 id=&quot;singularities&quot;&gt;Singularities&lt;/h2&gt;
+
+&lt;p&gt;From the geometric point of view, a singularity corresponds to a point where a given geometric object, for example a manifold or an algebraic variety, has an unexpected tangent space. For instance, if we consider the following hypersurfaces&lt;/p&gt;
+
+&lt;center&gt;
+&lt;table border=&quot;0&quot;&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;img src=&quot;/assets/img/Singularities_via_Frobenius/Sing1.png&quot; alt=&quot;&quot; /&gt; &lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;img src=&quot;/assets/img/Singularities_via_Frobenius/Sing2.png&quot; alt=&quot;&quot; /&gt; &lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;img src=&quot;/assets/img/Singularities_via_Frobenius/Sing3.png&quot; alt=&quot;&quot; /&gt; &lt;/td&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+&lt;p&gt;we can see that in each case there is a special point where the tangent space is larger than expected.&lt;/p&gt;
+
+&lt;p&gt;Singularities can also be detected algebraically. For example, if &lt;script type=&quot;math/tex&quot;&gt;f(\boldsymbol{x})&lt;/script&gt; is a polynomial in &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; variables with real coefficients defining a hypersurface &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; in &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^n&lt;/script&gt;, then the singularities of &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; are given by those points &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{a}\in X&lt;/script&gt; where the partial derivatives &lt;script type=&quot;math/tex&quot;&gt;\frac{\partial f}{\partial x_i}(\boldsymbol{a})&lt;/script&gt; are zero for all &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt;. For instance,  the hypersurface in the middle of the above figure corresponds to  &lt;script type=&quot;math/tex&quot;&gt;f=z^3-(y^2+3x^2)&lt;/script&gt;, which has  partial derivatives &lt;script type=&quot;math/tex&quot;&gt;f_x=-6x&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;f_y=-2y&lt;/script&gt;, and &lt;script type=&quot;math/tex&quot;&gt;f_z=3z^2&lt;/script&gt;. We conclude that the only singular point is the origin, which corresponds with our geometric intuition.&lt;/p&gt;
+
+&lt;p&gt;Classifying singularities has been an object of intense study in both zero and positive characteristic. In characteristic zero many invariants can be described in terms of resolutions of singularities and they are related to the minimal model program. Furthermore, many results in this setting can be approached analytically. However, in the recent decades, it has become apparent that in order to study singularities in characteristic zero, one can also reduce to positive characteristic and use Frobenius techniques to investigate singularities.&lt;/p&gt;
+
+&lt;h2 id=&quot;singularities-via-frobenius&quot;&gt;Singularities via Frobenius&lt;/h2&gt;
+
+&lt;p&gt;Let &lt;script type=&quot;math/tex&quot;&gt;R&lt;/script&gt; be a domain of positive characteristic &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt;. The Frobenius map &lt;script type=&quot;math/tex&quot;&gt;F:R\to R&lt;/script&gt; takes an element &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; to &lt;script type=&quot;math/tex&quot;&gt;r^p&lt;/script&gt;, therefore its image is the subring &lt;script type=&quot;math/tex&quot;&gt;R^p&lt;/script&gt; consisting of all the &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt;-th powers of elements in &lt;script type=&quot;math/tex&quot;&gt;R&lt;/script&gt;. This induces on &lt;script type=&quot;math/tex&quot;&gt;R&lt;/script&gt; a structure of &lt;script type=&quot;math/tex&quot;&gt;R^p&lt;/script&gt;-module. It is a consequence of a theorem of Kunz that, under mild conditions, &lt;script type=&quot;math/tex&quot;&gt;R&lt;/script&gt; is not singular if and only if &lt;script type=&quot;math/tex&quot;&gt;R&lt;/script&gt; is a locally free &lt;script type=&quot;math/tex&quot;&gt;R^p&lt;/script&gt;-module. This remarkable result tells us that we can detect singularities via the action of Frobenius. Therefore we can define different families of singularities by specifying “how close” &lt;script type=&quot;math/tex&quot;&gt;R&lt;/script&gt; is to a locally free &lt;script type=&quot;math/tex&quot;&gt;R^p&lt;/script&gt;-module. There are many kinds of singularities obtained by imposing restrictions on the action of Frobenius and one key feature is that they parallel the classes of singularities that have been studied in characteristic zero. The following diagram shows the relation among them and how they compare with the singularities in characteristic zero:&lt;/p&gt;
+
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/Singularities_via_Frobenius/Sing.png&quot; alt=&quot;&quot; /&gt;
+ &lt;/center&gt;
+</description>
+        
+          <description>&lt;p&gt;My main object of study are singularities, their invariants, and the tools used to study them. Singularities play an important role as they appear naturally in almost every area of mathematics, including commutative algebra, algebraic geometry, number theory, representation theory, analysis and topology. My research is focused mostly on the invariants encountered in positive characteristic and their relation/similarity with invariants appearing in characteristic zero.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 02 Nov 2016 00:00:00 -0400</pubDate>
+        <link>http://scy1505.github.io/blog/Singularities/</link>
+        <guid isPermaLink="true">http://scy1505.github.io/blog/Singularities/</guid>
+        
+        
+        <category>math</category>
         
       </item>
       
