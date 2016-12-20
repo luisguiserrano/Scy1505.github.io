@@ -3,6 +3,7 @@ layout: post
 title:  "An intro to the most basic Machine Learning techniques through the Kaggle Example"
 date:   2016-10-11
 published: true
+category: general
 ---
 
 

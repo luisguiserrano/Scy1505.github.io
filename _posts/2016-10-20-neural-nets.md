@@ -6,6 +6,8 @@ title:  "Neural Networks"
 date:   2016-10-19
 
 published: true
+
+category: general
 ---
 
 
@@ -67,7 +69,7 @@ The sigmoid function ives a smooth output that is always between 0 and 1.
 
 $$y = \frac{1}{1+e^{-(w_1 x_1+w_2x_2+\ldots w_nx_n)}}.$$
 
-Note what happens when $w_1 x_1+w_2x_2+\ldots w_nx_n\to \pm \infty$. 
+Note what happens when $$w_1 x_1+w_2x_2+\ldots w_nx_n\to \pm \infty$$. 
 
 
 ### 1.1.5 Stochastic Binary
