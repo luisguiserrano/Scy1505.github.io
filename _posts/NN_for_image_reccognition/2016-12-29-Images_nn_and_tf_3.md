@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "NN for image reccognition - Logistic Regression"
-date:   2016-12-28
+date:   2016-12-29
 category: NN_for_image_reccognition
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "NN for image reccognition - A Two Layer Neural Network"
-date:   2017-1-09
+date:   2017-01-09
 category: NN_for_image_reccognition
 ---
 
