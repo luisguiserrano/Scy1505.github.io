@@ -1,19 +1,20 @@
 ---
 layout: post
-title:  "NN for image reccognition - Part 5"
+title:  "NN for image reccognition - Convolutions in Tensorflow"
 date:   2017-01-16
 category: NN_for_image_reccognition
 ---
 
 This is part 5 of our blogpost related with images and tensorflow. The posts follow the following:
 
-1. Getting the Data.
-2. k-neareast Neighbor.
-3. Logistic Regression.
-4. A two layer Neural Network.
-5. **Convolutions in Tensorflow.**
-6. Convolutional Networks.
-7. What's next?
+1. [Getting the Data]({{ site.baseurl }}{% post_url 2016-12-15-Images_nn_and_tf_1 %}).
+2. [k-neareast Neighbor]({{ site.baseurl }}{% post_url 2016-12-22-Images_nn_and_tf_2 %}).
+3. [Logistic Regression]({{ site.baseurl }}{% post_url 2016-12-29-Images_nn_and_tf_3 %}).
+4. [A two layer Neural Network]({{ site.baseurl }}{% post_url 2017-01-09-Images_nn_and_tf_4 %}).
+5. **Convolutions in Tensorflow**.
+6. [Convolutional Network]({{ site.baseurl }}{% post_url 2017-01-23-Images_nn_and_tf_6 %}).
+
+
 
 # Convolutions in Tensorflow
 

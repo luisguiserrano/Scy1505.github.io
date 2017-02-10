@@ -5,23 +5,22 @@
     <description>A resting place for Puppy.</description>
     <link>http://scy1505.github.io/</link>
     <atom:link href="http://scy1505.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 09 Feb 2017 21:00:21 -0500</pubDate>
-    <lastBuildDate>Thu, 09 Feb 2017 21:00:21 -0500</lastBuildDate>
+    <pubDate>Thu, 09 Feb 2017 21:17:13 -0500</pubDate>
+    <lastBuildDate>Thu, 09 Feb 2017 21:17:13 -0500</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       
       <item>
-        <title>NN for image reccognition - Part 6</title>
+        <title>NN for image reccognition - Convolutional Network</title>
         <description>&lt;p&gt;This is part 6 of our blogpost related with images and tensorflow. The posts follow the following:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Getting the Data.&lt;/li&gt;
-  &lt;li&gt;k-neareast Neighbor.&lt;/li&gt;
-  &lt;li&gt;Logistic Regression.&lt;/li&gt;
-  &lt;li&gt;A two layer Neural Network.&lt;/li&gt;
-  &lt;li&gt;Convolutions in Tensorflow.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Convolutional Networks.&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;What’s next?&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_1/&quot;&gt;Getting the Data&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_2/&quot;&gt;k-neareast Neighbor&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_3/&quot;&gt;Logistic Regression&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_4/&quot;&gt;A two layer Neural Network&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_5/&quot;&gt;Convolutions in Tensorflow&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Convolutional Network.&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h1 id=&quot;convolutional-networks&quot;&gt;Convolutional Networks.&lt;/h1&gt;
@@ -426,17 +425,16 @@ The accuracy for the test set is 0.149
     
       
       <item>
-        <title>NN for image reccognition - Part 5</title>
+        <title>NN for image reccognition - Convolutions in Tensorflow</title>
         <description>&lt;p&gt;This is part 5 of our blogpost related with images and tensorflow. The posts follow the following:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Getting the Data.&lt;/li&gt;
-  &lt;li&gt;k-neareast Neighbor.&lt;/li&gt;
-  &lt;li&gt;Logistic Regression.&lt;/li&gt;
-  &lt;li&gt;A two layer Neural Network.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Convolutions in Tensorflow.&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Convolutional Networks.&lt;/li&gt;
-  &lt;li&gt;What’s next?&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_1/&quot;&gt;Getting the Data&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_2/&quot;&gt;k-neareast Neighbor&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_3/&quot;&gt;Logistic Regression&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_4/&quot;&gt;A two layer Neural Network&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Convolutions in Tensorflow&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_6/&quot;&gt;Convolutional Network&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h1 id=&quot;convolutions-in-tensorflow&quot;&gt;Convolutions in Tensorflow&lt;/h1&gt;
@@ -589,17 +587,16 @@ C_1=\begin{pmatrix} 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0\
     
       
       <item>
-        <title>NN for image reccognition - Part 4</title>
+        <title>NN for image reccognition - A Two Layer Neural Network</title>
         <description>&lt;p&gt;This is part 4 of our blogpost related with images and tensorflow. The posts follow the following:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Getting the Data.&lt;/li&gt;
-  &lt;li&gt;k-neareast Neighbor.&lt;/li&gt;
-  &lt;li&gt;Logistic Regression.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;A two layer Neural Networks.&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Convolutions in Tensorflow.&lt;/li&gt;
-  &lt;li&gt;Convolutional Networks.&lt;/li&gt;
-  &lt;li&gt;What’s next?&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_1/&quot;&gt;Getting the Data&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_2/&quot;&gt;k-neareast Neighbor&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_3/&quot;&gt;Logistic Regression&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;A two layer Neural Network&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_5/&quot;&gt;Convolutions in Tensorflow&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_6/&quot;&gt;Convolutional Network&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h1 id=&quot;a-two-layer-neural-network&quot;&gt;A two layer Neural Network.&lt;/h1&gt;
@@ -812,17 +809,16 @@ The accuracy for the testing set is: 33%
     
       
       <item>
-        <title>NN for image reccognition - Part 3</title>
+        <title>NN for image reccognition - Logistic Regression</title>
         <description>&lt;p&gt;This is part 3 of our blogpost related with images and tensorflow. The posts follow the following:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Getting the Data.&lt;/li&gt;
-  &lt;li&gt;k-neareast Neighbor.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Logistic Regression.&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;A two layer Neural Network.&lt;/li&gt;
-  &lt;li&gt;Convolutions in Tensorflow.&lt;/li&gt;
-  &lt;li&gt;Convolutional Networks.&lt;/li&gt;
-  &lt;li&gt;What’s next?&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_1/&quot;&gt;Getting the Data&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_2/&quot;&gt;k-neareast Neighbor&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Logistic Regression&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_4/&quot;&gt;A two layer Neural Network&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_5/&quot;&gt;Convolutions in Tensorflow&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_6/&quot;&gt;Convolutional Network&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h1 id=&quot;logistic-regression&quot;&gt;Logistic Regression&lt;/h1&gt;
@@ -965,17 +961,16 @@ In the next post we apply all of these techniques but the last one. We study con
     
       
       <item>
-        <title>NN for image reccognition - Part 2</title>
+        <title>NN for image reccognition - k-Nearest Neighbor</title>
         <description>&lt;p&gt;This is part 2 of our blogpost related with images and tensorflow. The posts follow the following:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Getting the Data.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;k-neareast Neighbor.&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Logistic Regression.&lt;/li&gt;
-  &lt;li&gt;A two layer Neural Network.&lt;/li&gt;
-  &lt;li&gt;Convolutions in Tensorflow.&lt;/li&gt;
-  &lt;li&gt;Convolutional Networks.&lt;/li&gt;
-  &lt;li&gt;What’s next?&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_1/&quot;&gt;Getting the Data&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;k-neareast Neighbor&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_3/&quot;&gt;Logistic Regression&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_4/&quot;&gt;A two layer Neural Network&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_5/&quot;&gt;Convolutions in Tensorflow&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_6/&quot;&gt;Convolutional Network&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;strong&gt;K-nearest Neighbor&lt;/strong&gt; is a naive approach to learning. The idea, simple enough, is to predict the label of an image by looking at the &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt;-neareast neighbors, and choose according to the labels of these neietghbors, by some procedure of choice, for example most frequent, random, etc.&lt;/p&gt;
@@ -1239,17 +1234,16 @@ Testing by brute force takes 12.8004 seconds.
     
       
       <item>
-        <title>NN for image reccognition - Part 1</title>
+        <title>NN for image reccognition - Getting the Data</title>
         <description>&lt;p&gt;This is part 1 of our blogpost related with images and tensorflow. The posts follow the following:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Getting the Data.&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;k-neareast Neighbor.&lt;/li&gt;
-  &lt;li&gt;Logistic Regression.&lt;/li&gt;
-  &lt;li&gt;A two layer Neural Network.&lt;/li&gt;
-  &lt;li&gt;Convolutions in Tensorflow.&lt;/li&gt;
-  &lt;li&gt;Convolutional Networks.&lt;/li&gt;
-  &lt;li&gt;What’s next?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Getting the Data&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_2/&quot;&gt;k-neareast Neighbor&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_3/&quot;&gt;Logistic Regression&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_4/&quot;&gt;A two layer Neural Network&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_5/&quot;&gt;Convolutions in Tensorflow&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/Images_nn_and_tf_6/&quot;&gt;Convolutional Network&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h1 id=&quot;getting-the-data&quot;&gt;1. Getting the Data&lt;/h1&gt;

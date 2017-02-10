@@ -1,19 +1,19 @@
 ---
 layout: post
-title:  "NN for image reccognition - Part 2"
+title:  "NN for image reccognition - k-Nearest Neighbor"
 date:   2016-12-22
 category: NN_for_image_reccognition
 ---
 
 This is part 2 of our blogpost related with images and tensorflow. The posts follow the following:
 
-1. Getting the Data.
-2. **k-neareast Neighbor.**
-3. Logistic Regression.
-4. A two layer Neural Network.
-5. Convolutions in Tensorflow.
-6. Convolutional Networks.
-7. What's next?
+1. [Getting the Data]({{ site.baseurl }}{% post_url 2016-12-15-Images_nn_and_tf_1 %}).
+2. **k-neareast Neighbor**.
+3. [Logistic Regression]({{ site.baseurl }}{% post_url 2016-12-29-Images_nn_and_tf_3 %}).
+4. [A two layer Neural Network]({{ site.baseurl }}{% post_url 2017-01-09-Images_nn_and_tf_4 %}).
+5. [Convolutions in Tensorflow]({{ site.baseurl }}{% post_url 2017-01-16-Images_nn_and_tf_5 %}).
+6. [Convolutional Network]({{ site.baseurl }}{% post_url 2017-01-23-Images_nn_and_tf_6 %}).
+
 
 **K-nearest Neighbor** is a naive approach to learning. The idea, simple enough, is to predict the label of an image by looking at the $$k$$-neareast neighbors, and choose according to the labels of these neietghbors, by some procedure of choice, for example most frequent, random, etc.
 
