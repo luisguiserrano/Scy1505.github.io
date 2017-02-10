@@ -137,7 +137,9 @@ ga('send', 'pageview');
 
 <h1 id="preprocess-image">Preprocess Image</h1>
 
-<p>There are many operations that can be done here to preprocess an image (image augmentation, blurring,etc.) We opt only for normalizing the images in each channel. That is we fix each channel, and each pixel, and compute  <script type="math/tex">\frac{x-\text{E}[x]}{\sigma[x]+\epsilon}</script></p>
+<p>There are many operations that can be done here to preprocess an image (image augmentation, blurring,etc.) We opt only for normalizing the images in each channel. That is we fix each channel, and each pixel, and compute</p>
+
+<script type="math/tex; mode=display">\frac{x-\text{E}[x]}{\sigma[x]+\epsilon}</script>
 
 <p>We first compute the mean and standard deviation for each entry</p>
 
@@ -151,8 +153,9 @@ ga('send', 'pageview');
 
 <h1 id="the-network">The Network</h1>
 
-<p>We are ready to begin creating our network. We need to decide on a style, so we go for 
-<strong>&lt;p style="text-align: center;"&gt; INPUT -&gt; [CONV -&gt; RELU -&gt; MAXPOOL]*2 -&gt; FULLY CONNECTED -&gt; RELU -&gt; FULLY CONNECTED &lt;/p&gt;</strong></p>
+<p>We are ready to begin creating our network. We need to decide on a style, so we go for</p>
+
+<p style="text-align: center;"><b>INPUT -&gt; [CONV -&gt; RELU -&gt; MAXPOOL]*2 -&gt; FULLY CONNECTED -&gt; RELU -&gt; FULLY CONNECTED</b></p>
 
 <p>We need to create placeholders to hold the imput, then we will have two layers consisting of a convolutional network with rectified linear unit activations and a max pool. We follow by a fully connected network with rectified linear output and we finish with a fully coneceted netwkork with sigmoid activation. It is important that we keep track of the different sizes.</p>
 

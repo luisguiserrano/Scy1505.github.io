@@ -59,7 +59,9 @@ y_test=(np.arange(10) ==np.array(y_test)[:,None]).astype(np.float32)
 
 # Preprocess Image
 
-There are many operations that can be done here to preprocess an image (image augmentation, blurring,etc.) We opt only for normalizing the images in each channel. That is we fix each channel, and each pixel, and compute  $$\frac{x-\text{E}[x]}{\sigma[x]+\epsilon}$$
+There are many operations that can be done here to preprocess an image (image augmentation, blurring,etc.) We opt only for normalizing the images in each channel. That is we fix each channel, and each pixel, and compute  
+
+$$\frac{x-\text{E}[x]}{\sigma[x]+\epsilon}$$
 
 We first compute the mean and standard deviation for each entry
 
@@ -80,7 +82,9 @@ X_test= (X_test-mean)/(std+1e-16)
 # The Network
 
 We are ready to begin creating our network. We need to decide on a style, so we go for 
-**<p style="text-align: center;"> INPUT -> [CONV -> RELU -> MAXPOOL]*2 -> FULLY CONNECTED -> RELU -> FULLY CONNECTED </p>**
+
+
+<p style="text-align: center;"><b>INPUT -> [CONV -> RELU -> MAXPOOL]*2 -> FULLY CONNECTED -> RELU -> FULLY CONNECTED</b></p>
 
 We need to create placeholders to hold the imput, then we will have two layers consisting of a convolutional network with rectified linear unit activations and a max pool. We follow by a fully connected network with rectified linear output and we finish with a fully coneceted netwkork with sigmoid activation. It is important that we keep track of the different sizes. 
 

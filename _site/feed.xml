@@ -5,8 +5,8 @@
     <description>A resting place for Puppy.</description>
     <link>http://scy1505.github.io/</link>
     <atom:link href="http://scy1505.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 09 Feb 2017 20:48:25 -0500</pubDate>
-    <lastBuildDate>Thu, 09 Feb 2017 20:48:25 -0500</lastBuildDate>
+    <pubDate>Thu, 09 Feb 2017 21:00:21 -0500</pubDate>
+    <lastBuildDate>Thu, 09 Feb 2017 21:00:21 -0500</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       
@@ -61,7 +61,9 @@
 
 &lt;h1 id=&quot;preprocess-image&quot;&gt;Preprocess Image&lt;/h1&gt;
 
-&lt;p&gt;There are many operations that can be done here to preprocess an image (image augmentation, blurring,etc.) We opt only for normalizing the images in each channel. That is we fix each channel, and each pixel, and compute  &lt;script type=&quot;math/tex&quot;&gt;\frac{x-\text{E}[x]}{\sigma[x]+\epsilon}&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;There are many operations that can be done here to preprocess an image (image augmentation, blurring,etc.) We opt only for normalizing the images in each channel. That is we fix each channel, and each pixel, and compute&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{x-\text{E}[x]}{\sigma[x]+\epsilon}&lt;/script&gt;
 
 &lt;p&gt;We first compute the mean and standard deviation for each entry&lt;/p&gt;
 
@@ -75,8 +77,9 @@
 
 &lt;h1 id=&quot;the-network&quot;&gt;The Network&lt;/h1&gt;
 
-&lt;p&gt;We are ready to begin creating our network. We need to decide on a style, so we go for 
-&lt;strong&gt;&amp;lt;p style=&quot;text-align: center;&quot;&amp;gt; INPUT -&amp;gt; [CONV -&amp;gt; RELU -&amp;gt; MAXPOOL]*2 -&amp;gt; FULLY CONNECTED -&amp;gt; RELU -&amp;gt; FULLY CONNECTED &amp;lt;/p&amp;gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We are ready to begin creating our network. We need to decide on a style, so we go for&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;b&gt;INPUT -&amp;gt; [CONV -&amp;gt; RELU -&amp;gt; MAXPOOL]*2 -&amp;gt; FULLY CONNECTED -&amp;gt; RELU -&amp;gt; FULLY CONNECTED&lt;/b&gt;&lt;/p&gt;
 
 &lt;p&gt;We need to create placeholders to hold the imput, then we will have two layers consisting of a convolutional network with rectified linear unit activations and a max pool. We follow by a fully connected network with rectified linear output and we finish with a fully coneceted netwkork with sigmoid activation. It is important that we keep track of the different sizes.&lt;/p&gt;
 
