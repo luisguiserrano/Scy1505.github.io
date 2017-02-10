@@ -2,7 +2,7 @@
 layout: post
 title:  "NN for image reccognition - Part 4"
 date:   2017-1-09
-category: convolutional_networks
+category: NN_for_image_reccognition
 ---
 
 This is part 4 of our blogpost related with images and tensorflow. The posts follow the following:

@@ -25,9 +25,9 @@ title: Posts
     {% endfor %}
   </ul>
 
-  <h1 class="pageTitle">Convolutional Networks</h1>
+  <h1 class="pageTitle">Neural Networks for Image Reccognition</h1>
   <ul class="posts noList">
-    {% for post in site.categories.convolutional_networks %}
+    {% for post in site.categories.NN_for_image_reccognition %}
       <li>
         <span class="date">{{ post.date | date_to_string }}</span>
         <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
