@@ -88,11 +88,11 @@ ga('send', 'pageview');
   <h1 class="postTitle">Random walk of molecules</h1>
   <p class="meta">April 26, 2017 | <span class="time">9</span> Minute Read</p>
   
-  <p>He says in cool voice: “Soooo… I am reading this awesome book called <a href="https://www.amazon.com/Machinery-Life-David-S-Goodsell/dp/0387849246">The Machinery of Life, by David S. Goodsell</a>, in an attempt to learn some basic Molecular Biology. And surprize, surprize! Page 10 has a claim about molecules walking randomly are bound to hit each other, and obviously I decided to model it.”</p>
+  <p>He says in cool voice: “Soooo… I am reading this excellent book called <a href="https://www.amazon.com/Machinery-Life-David-S-Goodsell/dp/0387849246">The Machinery of Life, by David S. Goodsell</a>, in an attempt to learn some basic Molecular Biology. And surprise, surprise! Page 10 has a claim about molecules walking randomly are bound to hit each other, and naturally, I decided to model it.”</p>
 
 <h1 id="the-question">The question</h1>
 
-<p>Suppose that there are two molecules, <script type="math/tex">A</script> and <script type="math/tex">B</script>, inside a compartment of cell (think mitochondria or the cell itself), most molecules move by bouncing back and forth against water molecules which creates a Brownian movement. Will the molecules <script type="math/tex">A</script> and <script type="math/tex">B</script> eventually collide? If the molecules were to be huge relatively to the cell you probably would answer yes right away, but the molecules are tiny. As a relative example imagine the cell as to be a blank piece of paper and the molecules are two dots on it moving randomly, will they collide? I was surprized a first to find the answer to this question to be yes, they do. But after a more careful thinking I came up with a simple explanation of way this happens.</p>
+<p>Suppose that there are two molecules, <script type="math/tex">A</script> and <script type="math/tex">B</script>, inside a compartment of a cell (think mitochondria or the cell itself), most molecules move by bouncing back and forth against water molecules which creates a Brownian movement. Will the molecules <script type="math/tex">A</script> and <script type="math/tex">B</script> eventually collide? If the molecules were to be huge relatively to the cell, you probably would answer yes right away, but the molecules are tiny. As a comparison, imagine the cell as to be a blank piece of paper, and the molecules are two dots on it moving randomly, will they collide? I was surprised a first to find the answer to this question to be yes, they do. But after a more careful thinking, I came up with a simple explanation of way this happens.</p>
 
 <p>Consider a finite set of points inside the cell like in the figure such that a given point the smaller molecule has to contain at least of the points, see the figure.</p>
 
@@ -116,17 +116,17 @@ ga('send', 'pageview');
 
 <script type="math/tex; mode=display">P(i \in A\cap B\mid_{T=t})=P(i \in A\cap B\mid_{T=t'})>0</script>
 
-<p>for <script type="math/tex">t,t'</script> suficiently large, hence the law of large numbers implies that this eventually happens.</p>
+<p>for <script type="math/tex">t,t'</script> sufficiently large, hence the law of large numbers implies that this eventually happens.</p>
 
 <p>Now the goal of this post is to show how we can model this on Python.</p>
 
 <h2 id="the-model">The model</h2>
 
-<p>We start by creating a class that represents the molecules, we allow ourself to give the class an initial position, a rate of movement, and a size. Later, we give this parameters values that would mimic the real life situation.</p>
+<p>We start by creating a class that represents the molecules, and we allow ourselves to give the class an initial position, a rate of movement, and a size. Later, we give these parameters values that would mimic the real life situation.</p>
 
-<p>Our model for a protein is the same as for a two dimensional cow, that is a circle, and for the cell we use a square of side 1.</p>
+<p>Our model for a protein is the same as for a two-dimensional cow, that is a circle, and for the cell, we use a square of side 1.</p>
 
-<p>Of importance to us are the methods update and colide, the first one updates the position of the molecule after an instant of time by chosing a ramdon direction, if the molecule ‘hits’ the wall then it bounces. The second one determines if a collition has occurred with another molecule.</p>
+<p>Of importance to us are the methods update and collide, the first one updates the position of the molecule after an instant of time by choosing a random direction if the molecule ‘hits’ the wall then it bounces. The second one determines if a collision has occurred with another molecule.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">import</span> <span class="n">numpy</span> <span class="n">as</span> <span class="n">np</span>
 
@@ -161,7 +161,7 @@ ga('send', 'pageview');
     <span class="k">def</span> <span class="nf">colide</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span><span class="n">other</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="nf">linalg</span><span class="p">.</span><span class="nf">norm</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="nf">pos</span><span class="o">-</span><span class="n">other</span><span class="p">.</span><span class="nf">pos</span><span class="p">)</span><span class="o">&lt;</span><span class="nb">self</span><span class="p">.</span><span class="nf">size</span><span class="o">+</span><span class="n">other</span><span class="p">.</span><span class="nf">size</span></code></pre></figure>
 
-<p>We can try it out, let’s create two molecules moving at a speed of .3 units of distance per unit of time and of size one thousandth of the size of the cell.</p>
+<p>We can try it out, let’s create two molecules moving at a speed of .3 units of distance per unit of time and size one thousandth of the size of the cell.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">A</span><span class="o">=</span><span class="n">molecule</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="mi">0</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="o">.</span><span class="mi">5</span><span class="p">]),</span><span class="mi">0</span><span class="o">.</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="o">.</span><span class="mo">001</span><span class="p">)</span>
 <span class="no">B</span><span class="o">=</span><span class="n">molecule</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="mi">0</span><span class="o">.</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="o">.</span><span class="mi">2</span><span class="p">]),</span><span class="mi">0</span><span class="o">.</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="o">.</span><span class="mo">001</span><span class="p">)</span></code></pre></figure>
@@ -186,9 +186,9 @@ ga('send', 'pageview');
 </code></pre>
 </div>
 
-<p>So, it took <script type="math/tex">17257</script> units of time for the collition to happen. That sounds like a lot, but is it? Here are some facts. A molecule is about 1/1000 the size of a cell, it travels its size per nanosecond (they are fast!). So if our time unit are microsecond, <script type="math/tex">10^{-6}</script> of a second, then their speed is about 1 cell units per microsecond, and we are assuming 0.3 cell units per microsecond, so out model is actually slower, more interesting it took 17257 microseconds for the colition to happen, that is 0.000017257 seconds for it to happen, that is incredibly fast!</p>
+<p>So, it took <script type="math/tex">17257</script> units of time for the collision to happen. That sounds like a lot, but is it? Here are some facts. A molecule is about 1/1000 the size of a cell; it travels its size per nanosecond (they are fast!). So if our time unit is microsecond, <script type="math/tex">10^{-6}</script> of a second, then their speed is about 1 cell units per microsecond. We are assuming 0.3 cell units per microsecond, so our model is actually slower, more interesting it took 17257 microseconds for the collision to happen, that is 0.000017257 seconds for it to happen, that is incredibly fast!</p>
 
-<p>What about a graph, well, this is tricky, so here is what happens every milisecond. This could be improved by either giving a color scheme to the time or creating an animation, let’s call it homework.</p>
+<p>What about a graph, well, this is tricky, so here is what happens every millisecond. This graph could be improved by either giving a color scheme to the time or creating an animation, let’s call it homework.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">import</span> <span class="n">matplotlib</span><span class="p">.</span><span class="nf">pyplot</span> <span class="n">as</span> <span class="n">plt</span>
 
@@ -201,7 +201,7 @@ ga('send', 'pageview');
 <img src="/assets/img/random_walk_files/random_walk_14_0.png" alt="" /> 
 </center>
 
-<p>Finally, it is an interesting question, raised by my smart wife, about what is the probability distribution of the collition time. We run our model 100 times and keep the results to see what happens. (This will take a while)</p>
+<p>Finally, it is an interesting question, raised by my smart wife, about what is the probability distribution of the collision time. We run our model 100 times and keep the results to see what happens. (This will take a while)</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">t</span><span class="o">=</span><span class="mi">0</span>
 <span class="n">times</span><span class="o">=</span><span class="p">[]</span>

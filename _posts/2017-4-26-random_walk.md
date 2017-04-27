@@ -5,11 +5,11 @@ date:   2017-04-26
 category: general
 ---
 
-He says in cool voice: "Soooo... I am reading this awesome book called [The Machinery of Life, by David S. Goodsell](https://www.amazon.com/Machinery-Life-David-S-Goodsell/dp/0387849246), in an attempt to learn some basic Molecular Biology. And surprize, surprize! Page 10 has a claim about molecules walking randomly are bound to hit each other, and obviously I decided to model it."  
+He says in cool voice: "Soooo... I am reading this excellent book called [The Machinery of Life, by David S. Goodsell](https://www.amazon.com/Machinery-Life-David-S-Goodsell/dp/0387849246), in an attempt to learn some basic Molecular Biology. And surprise, surprise! Page 10 has a claim about molecules walking randomly are bound to hit each other, and naturally, I decided to model it."  
 
 # The question
 
-Suppose that there are two molecules, $$A$$ and $$B$$, inside a compartment of cell (think mitochondria or the cell itself), most molecules move by bouncing back and forth against water molecules which creates a Brownian movement. Will the molecules $$A$$ and $$B$$ eventually collide? If the molecules were to be huge relatively to the cell you probably would answer yes right away, but the molecules are tiny. As a relative example imagine the cell as to be a blank piece of paper and the molecules are two dots on it moving randomly, will they collide? I was surprized a first to find the answer to this question to be yes, they do. But after a more careful thinking I came up with a simple explanation of way this happens. 
+Suppose that there are two molecules, $$A$$ and $$B$$, inside a compartment of a cell (think mitochondria or the cell itself), most molecules move by bouncing back and forth against water molecules which creates a Brownian movement. Will the molecules $$A$$ and $$B$$ eventually collide? If the molecules were to be huge relatively to the cell, you probably would answer yes right away, but the molecules are tiny. As a comparison, imagine the cell as to be a blank piece of paper, and the molecules are two dots on it moving randomly, will they collide? I was surprised a first to find the answer to this question to be yes, they do. But after a more careful thinking, I came up with a simple explanation of way this happens. 
 
 Consider a finite set of points inside the cell like in the figure such that a given point the smaller molecule has to contain at least of the points, see the figure.
 
@@ -38,19 +38,18 @@ similarly $$P(i \in B\mid_{T=t})>0$$ and as the movements are independent of eac
 
 $$P(i \in A\cap B\mid_{T=t})=P(i \in A\cap B\mid_{T=t'})>0$$ 
 
-for $$t,t'$$ suficiently large, hence the law of large numbers implies that this eventually happens. 
+for $$t,t'$$ sufficiently large, hence the law of large numbers implies that this eventually happens. 
 
 Now the goal of this post is to show how we can model this on Python. 
 
 
 ## The model
 
-We start by creating a class that represents the molecules, we allow ourself to give the class an initial position, a rate of movement, and a size. Later, we give this parameters values that would mimic the real life situation.
+We start by creating a class that represents the molecules, and we allow ourselves to give the class an initial position, a rate of movement, and a size. Later, we give these parameters values that would mimic the real life situation.
 
-Our model for a protein is the same as for a two dimensional cow, that is a circle, and for the cell we use a square of side 1. 
+Our model for a protein is the same as for a two-dimensional cow, that is a circle, and for the cell, we use a square of side 1. 
 
-Of importance to us are the methods update and colide, the first one updates the position of the molecule after an instant of time by chosing a ramdon direction, if the molecule 'hits' the wall then it bounces. The second one determines if a collition has occurred with another molecule. 
-
+Of importance to us are the methods update and collide, the first one updates the position of the molecule after an instant of time by choosing a random direction if the molecule 'hits' the wall then it bounces. The second one determines if a collision has occurred with another molecule. 
 
 
 {% highlight ruby %}
@@ -88,7 +87,7 @@ class molecule:
         return np.linalg.norm(self.pos-other.pos)<self.size+other.size
 {% endhighlight %}
 
-We can try it out, let's create two molecules moving at a speed of .3 units of distance per unit of time and of size one thousandth of the size of the cell.
+We can try it out, let's create two molecules moving at a speed of .3 units of distance per unit of time and size one thousandth of the size of the cell.
 
 
 {% highlight ruby %}
@@ -118,9 +117,9 @@ while t<1000000:
     17257
 
 
-So, it took $$17257$$ units of time for the collition to happen. That sounds like a lot, but is it? Here are some facts. A molecule is about 1/1000 the size of a cell, it travels its size per nanosecond (they are fast!). So if our time unit are microsecond, $$10^{-6}$$ of a second, then their speed is about 1 cell units per microsecond, and we are assuming 0.3 cell units per microsecond, so out model is actually slower, more interesting it took 17257 microseconds for the colition to happen, that is 0.000017257 seconds for it to happen, that is incredibly fast!
+So, it took $$17257$$ units of time for the collision to happen. That sounds like a lot, but is it? Here are some facts. A molecule is about 1/1000 the size of a cell; it travels its size per nanosecond (they are fast!). So if our time unit is microsecond, $$10^{-6}$$ of a second, then their speed is about 1 cell units per microsecond. We are assuming 0.3 cell units per microsecond, so our model is actually slower, more interesting it took 17257 microseconds for the collision to happen, that is 0.000017257 seconds for it to happen, that is incredibly fast!
 
-What about a graph, well, this is tricky, so here is what happens every milisecond. This could be improved by either giving a color scheme to the time or creating an animation, let's call it homework.
+What about a graph, well, this is tricky, so here is what happens every millisecond. This graph could be improved by either giving a color scheme to the time or creating an animation, let's call it homework.
 
 
 {% highlight ruby %}
@@ -138,7 +137,7 @@ plt.show()
 </center>
 
 
-Finally, it is an interesting question, raised by my smart wife, about what is the probability distribution of the collition time. We run our model 100 times and keep the results to see what happens. (This will take a while)
+Finally, it is an interesting question, raised by my smart wife, about what is the probability distribution of the collision time. We run our model 100 times and keep the results to see what happens. (This will take a while)
 
 
 {% highlight ruby %}
