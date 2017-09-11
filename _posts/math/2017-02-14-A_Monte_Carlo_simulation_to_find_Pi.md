@@ -6,7 +6,7 @@ category: math
 ---
 
 
-In this post, we explain what a Monte-Carlo simulation is and use the idea to approximate the value of $$\pi$$. This notes are intended for MATH 4991.
+In this post, we explain what a Monte-Carlo simulation is and use the idea to approximate the value of $$\pi$$. This notes are intended for my students in MATH 4991.
 
 # The Monte-Carlo Simulation
 

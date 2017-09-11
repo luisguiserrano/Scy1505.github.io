@@ -5,8 +5,8 @@
     <description>A resting place for Puppy.</description>
     <link>http://scy1505.github.io/</link>
     <atom:link href="http://scy1505.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 11 Sep 2017 12:52:44 -0400</pubDate>
-    <lastBuildDate>Mon, 11 Sep 2017 12:52:44 -0400</lastBuildDate>
+    <pubDate>Mon, 11 Sep 2017 12:58:28 -0400</pubDate>
+    <lastBuildDate>Mon, 11 Sep 2017 12:58:28 -0400</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       
@@ -183,7 +183,7 @@ plt.show()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
       
       <item>
         <title>A Monte-Carlo simulation to find Pi</title>
-        <description>&lt;p&gt;In this post, we explain what a Monte-Carlo simulation is and use the idea to approximate the value of &lt;script type=&quot;math/tex&quot;&gt;\pi&lt;/script&gt;. This notes are intended for MATH 4991.&lt;/p&gt;
+        <description>&lt;p&gt;In this post, we explain what a Monte-Carlo simulation is and use the idea to approximate the value of &lt;script type=&quot;math/tex&quot;&gt;\pi&lt;/script&gt;. This notes are intended for my students in MATH 4991.&lt;/p&gt;
 
 &lt;h1 id=&quot;the-monte-carlo-simulation&quot;&gt;The Monte-Carlo Simulation&lt;/h1&gt;
 
@@ -719,7 +719,7 @@ With an accuracy of 0.000100 the value of pi is 3.141735 and it took 3401000 ite
 &lt;p&gt;You can see some other example &lt;a href=&quot;https://pythonprogramming.net/monte-carlo-simulator-python/&quot;&gt;here&lt;/a&gt;, you can also find a nice introduction to plotting in Python &lt;a href=&quot;https://www.labri.fr/perso/nrougier/teaching/matplotlib/#text&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
         
-          <description>&lt;p&gt;In this post, we explain what a Monte-Carlo simulation is and use the idea to approximate the value of &lt;script type=&quot;math/tex&quot;&gt;\pi&lt;/script&gt;. This notes are intended for MATH 4991.&lt;/p&gt;
+          <description>&lt;p&gt;In this post, we explain what a Monte-Carlo simulation is and use the idea to approximate the value of &lt;script type=&quot;math/tex&quot;&gt;\pi&lt;/script&gt;. This notes are intended for my students in MATH 4991.&lt;/p&gt;
 
 </description>
         
