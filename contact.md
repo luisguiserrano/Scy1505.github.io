@@ -6,20 +6,11 @@ title: Contact Long Haul
 <div id="contact">
   <h1 class="pageTitle">Contact Me</h1>
   <div class="contact_content">
+    <p> If you want to get in touch shoot me an email or find me on Linkedin.</p>
     <h4 class="intro"> Email:</h4>
     <p> <a href="mailto:juan1505@gmail.com"> juan1505@gmail.com </a></p>
-    <h4 class="intro"> Office:</h4>
-
-    <p> 740 College of Education <br>
-      Office phone: +1-404-413-6405
-    </p>
-    <h4 class="intro"> Postal Address: </h4>
-    <p> Department of Mathematics & Statistics <br>
-        Georgia State University <br>
-        750 College of Education Building <br>
-        30 Pryor St SW <br>
-        Atlanta, GA 30303-3083 USA <br>
-    </p>
+    <h4 class="intro"> Linkedin:</h4>
+    <p> <a href="https://www.linkedin.com/in/felipe-perez-794789102/"> Felipe Pérez </a></p>
   </div>
 
   <div class="contact_picture">
