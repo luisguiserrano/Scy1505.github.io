@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Contact Long Haul
+title: Contact Felipe
 ---
 
 <div id="contact">
   <h1 class="pageTitle">Contact Me</h1>
   <div class="contact_content">
-    <p> If you want to get in touch shoot me an email or find me on Linkedin.</p>
+    <p> If you want to get in touch, shoot me an email or find me on Linkedin.</p>
     <h4 class="intro"> Email:</h4>
     <p> <a href="mailto:juan1505@gmail.com"> juan1505@gmail.com </a></p>
     <h4 class="intro"> Linkedin:</h4>
