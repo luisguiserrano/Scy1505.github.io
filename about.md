@@ -9,7 +9,7 @@ title: About
 	 <img src="{{ '/assets/img/me.jpg' | prepend: site.baseurl }}" alt=""> 
 	</div>
   <div class="About_content">
-  I am a data scientist with a broad range of interests. As of lately, I have been focusing on Deep Learning, particulary its uses for Natural Language Processing. I constantly give talks about Machine Learning, as well as write introductory material.<br>
+  I am a data scientist with a broad range of interests. As of lately, I have been focusing on Deep Learning, particularly its uses for Natural Language Processing. I frequently give talks about Machine Learning, as well as write introductory material.<br>
 
 
   I am also an avid programmer who loves to solve algorithmic challenges. I used to compete in <a href="https://www.hackerrank.com/juan1505"> HackerRank </a>, where I obtained 3 silver medals and a bronze one.  <br>
