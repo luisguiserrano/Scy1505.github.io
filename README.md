@@ -1,5 +1,3 @@
-![preview Long Haul](/preview.jpg)
-
 This website is based on the Long Haul minimal jekyll theme. You can find information about this theme below. 
 
 Long Haul is a minimal jekyll theme built with COMPASS / SASS / SUSY and focuses on long form blog posts. It is meant to be used as a starting point for a jekyll blog/website.
