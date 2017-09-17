@@ -7,7 +7,7 @@ category: general
 
 In this and the following posts we study the Amazon reviews dataset and proceed to build models to predict the Sales Rank feature. These post are the result of the HackOn(Data) competition of 2017. 
 
-Team: Hari, Con, and Felipe.
+**Team**: Hari, Con, and Felipe.
 
 # HackOn(Data)
 
@@ -21,7 +21,7 @@ Welcome to our project. We have decided to do a simple Forecasting on the salesR
 
 **NOTE:** This notebook is intended to show the overall ideas and, in order to make it easier to read, we have sacrificed speed. 
 
-**NOTE 2:** For the code and details refer to the [github repo]() (BROKEN LINK).
+**NOTE 2:** For the code and details refer to the [github repo](https://github.com/Scy1505/hackon_data).
 
 This post are organized as follows:
 
