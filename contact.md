@@ -8,7 +8,7 @@ title: Contact Felipe
   <div class="contact_content">
     <p> If you want to get in touch, shoot me an email or find me on Linkedin.</p>
     <h4 class="intro"> Email:</h4>
-    <p> <a href="mailto:juan1505@gmail.com"> juan1505@gmail.com </a></p>
+    <p> <a href="mailto:felipe.perez.ds@gmail.com"> felipe.perez.ds@gmail.com </a></p>
     <h4 class="intro"> Linkedin:</h4>
     <p> <a href="https://www.linkedin.com/in/felipe-perez-/"> Felipe Pérez </a></p>
   </div>
