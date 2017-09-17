@@ -15,6 +15,6 @@ title: About
   I am also an avid programmer who loves to solve algorithmic challenges. I used to compete in <a href="https://www.hackerrank.com/juan1505"> HackerRank </a>, where I obtained 3 silver medals and a bronze one.  <br>
 
   
-   Before becoming a data scientist, I was a postdoctoral assistant professor at the <a href="http://mathstat.gsu.edu/">Department of Mathematics and Statistics at Georgia State University  </a>. I finished my Ph.D in Mathematics at <a href="http://umich.edu/"> University of Michigan </a> under the supervision of Prof. <a href="http://www.math.lsa.umich.edu/~mmustata/">  Mircea Mustaţă. </a> My research interests are Commutative Algebra and Algebraic Geometry. Here is my <a href="file/cv.pdf">  CV </a>. To learn more, click on one of the links above.
+   Before becoming a data scientist, I was a postdoctoral assistant professor at the <a href="http://mathstat.gsu.edu/">Department of Mathematics and Statistics at Georgia State University  </a>. I finished my Ph.D in Mathematics at <a href="http://umich.edu/"> University of Michigan </a> under the supervision of Prof. <a href="http://www.math.lsa.umich.edu/~mmustata/">  Mircea Mustaţă. </a> My research interests are Commutative Algebra and Algebraic Geometry. Here is my <a href="{{ '/assets/img/cv.pdf' | prepend: site.baseurl }}">  CV </a>. To learn more, click on one of the links above.
   </div>
 </div>
