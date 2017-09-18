@@ -9,7 +9,7 @@ In this and the following posts we study the Amazon reviews dataset and proceed 
 
 **Team**: Hari, Con, and Felipe.
 
-# HackOn(Data)
+# [HackOn(Data)](https://hackondata.com/2017/index.html#home)
 
 ## Competition Challenge
 

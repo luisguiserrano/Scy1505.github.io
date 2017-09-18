@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Preparing the data</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+    <!-- Come and get me RSS readers -->
+    <link rel="alternate" type="application/rss+xml" title="Felipe's Place" href="http://scy1505.github.io/feed.xml" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
+    <link rel="canonical" href="http://scy1505.github.io/blog/Preparing_the_data/">
+
+    <!-- Modernizr -->
+    <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
+
+     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58263416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+ 
+</head>
+
+
+<body>
+
+	 <div class="header">
+     <div class="container">
+         <h1 class="logo"><a href="/"> <font color="#5B0000">Felipe's Place</font></a></h1>
+         <nav class="nav-collapse">
+             <ul class="noList">
+                 
+                 <li class="element first  ">
+                     <a href="/index.html">Home</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/about">About</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/contact">Contact</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/research">Research</a>
+                 </li> 
+                 
+                 <li class="element   last">
+                     <a href="/articles">Posts</a>
+                 </li> 
+                 
+                 <!--<li>
+                     <a href="/articles">Posts</a>
+                 </li>-->
+                 <li> <a href="https://github.com/scy1505" target="_blank">GitHub</a></li>
+                 <!-- <li><a href="https://github.com/brianmaierjr/long-haul/archive/master.zip">Download Theme</a></li> -->
+             </ul>
+         </nav>
+     </div>
+ </div><!-- end .header -->
+
+
+   	<div class="content">
+
+   		
+		 <div class="container">
+        	 <div class="post">
+  
+  <h1 class="postTitle">Preparing the data</h1>
+  <p class="meta">September 17, 2017 | <span class="time">16</span> Minute Read</p>
+  
+  <p>In our <a href="/blog/Study_the_data/">previous post</a> we did a quick study of the data set provided to us, in this post we clean the data and do some feature engineering which will prepare our dataset for training. This process is a long and important one.</p>
+
+<p><strong>Note</strong>: For the code and details refer to the <a href="https://github.com/Scy1505/hackon_data">github repo</a>.</p>
+
+<h1 id="part-2--cleaning-and-preparing-the-data">Part 2- Cleaning and preparing the Data</h1>
+
+<p>After loading the data we study the different features in each of the datasets.</p>
+
+<h2 id="features-from-the-meta-file">Features from the meta file</h2>
+
+<h3 id="salesrank">SalesRank</h3>
+
+<p>Note that the dataframe that contains the salesRank is df_meta. In this data there are two possible cases where the values described are not helpful. The first one is a NaN value, and we can use is null method to deal with this, the second one is the case of a dictionary no containing the relevant key. We use a helper function to help us with this.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">RELEVANT_KEY</span><span class="o">=</span><span class="s1">'video games'</span>
+<span class="k">def</span> <span class="nf">helper</span><span class="p">(</span><span class="n">dictionary</span><span class="p">):</span>
+    <span class="ss">try:
+        </span><span class="k">return</span> <span class="n">dictionary</span><span class="p">[</span><span class="no">RELEVANT_KEY</span><span class="p">]</span>
+    <span class="ss">except:
+        </span><span class="k">return</span> <span class="n">float</span><span class="p">(</span><span class="s1">'NaN'</span><span class="p">)</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">df_meta</span><span class="p">[</span><span class="s1">'salesRank'</span><span class="p">]</span><span class="o">=</span><span class="n">df_meta</span><span class="p">.</span><span class="nf">salesRank</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="nb">lambda</span> <span class="ss">x: </span><span class="n">helper</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></code></pre></figure>
+
+<p>It is now straighforward to find out that 5675 products don’t have the desired SalesRank feature, this corresponds to about 11% of all the products. As this is useless for our purposes we remove these rows</p>
+
+<h3 id="imurl">imUrl</h3>
+
+<p>This features contains the web address to an image. As ee won’t be using the images, so we drop this column.</p>
+
+<h3 id="title-and-brand">Title and brand</h3>
+
+<p>A couple lines of code give us that only 0.22% of the products have title, and only 0.11% of the products have brand. That is, these features are totally useless, so we drop them as well.</p>
+
+<h3 id="price">Price</h3>
+
+<p>The feature price is definitely relevant for the  forecasting, and  88.25% of the products have it. We have a couple of choices on how to deal with the missing values.</p>
+
+<ul>
+  <li>Fill it in with a natural replacement (average, zero, etc.).</li>
+  <li>Drop the products.</li>
+  <li>Create a categorical feature to separate the cases of having and no having the price.</li>
+</ul>
+
+<p>We opt for the second option. After this cleaning we find that there are 39959 products left.</p>
+
+<h3 id="categories">Categories</h3>
+
+<p>The categories feature comes as a list of lists, let’s first find out how many different categories are there.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">categories</span><span class="o">=</span><span class="n">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">list_cats</span> <span class="k">in</span> <span class="n">df_meta</span><span class="p">.</span><span class="nf">categories</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">list_cat</span> <span class="k">in</span> <span class="ss">list_cats:
+        </span><span class="n">categories</span><span class="o">=</span><span class="n">categories</span><span class="p">.</span><span class="nf">union</span><span class="p">(</span><span class="n">set</span><span class="p">(</span><span class="n">list_cat</span><span class="p">))</span>
+<span class="n">categories</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"There are %d categories"</span><span class="o">%</span><span class="n">len</span><span class="p">(</span><span class="n">categories</span><span class="p">))</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>There are 334 categories
+</code></pre>
+</div>
+
+<p>we use these as a categorial variable, first we create a unique list of categories for each product</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">helper2</span><span class="p">(</span><span class="n">list_cats</span><span class="p">):</span>
+    <span class="n">cats</span><span class="o">=</span><span class="n">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">list_cat</span> <span class="k">in</span> <span class="ss">list_cats:
+        </span><span class="n">cats</span><span class="o">=</span><span class="n">cats</span><span class="p">.</span><span class="nf">union</span><span class="p">(</span><span class="n">set</span><span class="p">(</span><span class="n">list_cat</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">list</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">df_meta</span><span class="p">[</span><span class="s1">'categories'</span><span class="p">]</span><span class="o">=</span><span class="n">df_meta</span><span class="p">.</span><span class="nf">categories</span><span class="p">.</span><span class="nf">apply</span><span class="p">(</span><span class="n">helper2</span><span class="p">)</span></code></pre></figure>
+
+<p>and then we use the <a href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MultiLabelBinarizer.html">MultiLabelBinarizer</a> from sklearn to do the encodding.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">mlb</span><span class="o">=</span><span class="no">MultiLabelBinarizer</span><span class="p">()</span>
+<span class="n">mlb</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">df_meta</span><span class="p">.</span><span class="nf">categories</span><span class="p">)</span>
+<span class="n">categories_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="no">DataFrame</span><span class="p">(</span><span class="n">mlb</span><span class="p">.</span><span class="nf">transform</span><span class="p">(</span><span class="n">df_meta</span><span class="p">.</span><span class="nf">categories</span><span class="p">),</span><span class="n">columns</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">mlb</span><span class="p">.</span><span class="nf">classes_</span><span class="p">))</span>
+<span class="n">df_meta</span><span class="p">.</span><span class="nf">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="no">True</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="no">True</span><span class="p">)</span>
+<span class="n">df_meta</span><span class="o">=</span><span class="n">df_meta</span><span class="p">.</span><span class="nf">merge</span><span class="p">(</span><span class="n">categories_df</span><span class="p">,</span><span class="n">left_index</span> <span class="o">=</span><span class="no">True</span><span class="p">,</span><span class="n">right_index</span> <span class="o">=</span><span class="no">True</span><span class="p">)</span></code></pre></figure>
+
+<p>we drop the categories column since we need it no more.</p>
+
+<h3 id="related-and-decription">Related and decription</h3>
+
+<p>We won’t be using this either, so we remove them.</p>
+
+<p><strong>Note:</strong> Potentially, there is relevant information here. Since there may be a correlation in the salesRank for related products.</p>
+
+<h2 id="features-from-the-reviews-file">Features from the reviews file</h2>
+
+<h3 id="reviewtext">reviewText</h3>
+
+<p>This feature, whose values contain the review will be used for sentiment analysis. We come back to this when building features. We note that there are 304 empty reviews on the dateset with all reviews and 3 empty ones for products that have at least 10 reviews. We drop those reviews.</p>
+
+<h3 id="summary">summary</h3>
+
+<p>We won’t be using this feature, so we drop it as well.</p>
+
+<h3 id="reviewtime">reviewTime</h3>
+
+<p>This feature is redundant since we have unixReviewTime, so we also get rid of it.</p>
+
+<h3 id="reviewername">ReviewerName</h3>
+<p>This is also (a little) redundant, since we have the reviewerID, we drop it. 
+<strong>Note:</strong> In theory we could do more with the names than we the ID. The reason is that we could use the names to try to guess how trustworthy/real a reviewr is.</p>
+
+<h3 id="helpful">Helpful</h3>
+<p>The helpful feature comes as a pair of integers, the first one represents the number of people who found the review helpful, the second one is the number of people giving an opinion on the review. We separate this info into two features.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">df_reviews</span><span class="p">[[</span><span class="s1">'wasHelpful'</span><span class="p">,</span><span class="s1">'helpfulFeedback'</span><span class="p">]]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="no">DataFrame</span><span class="p">(</span><span class="n">df_reviews</span><span class="p">.</span><span class="nf">helpful</span><span class="p">.</span><span class="nf">values</span><span class="p">.</span><span class="nf">tolist</span><span class="p">())</span></code></pre></figure>
+
+<p>and drop the helpful feature which is now redundant.</p>
+
+<h2 id="features-from-qa-data">Features from QA data</h2>
+<p>We clean a couple features from the question and answer dataset.</p>
+
+<h3 id="answertype">answerType</h3>
+
+<p>There are three possibilities for the kind of answer Y,N, and ? so we add this feature.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">df_qa</span><span class="p">[[</span><span class="s1">'Y_answer'</span><span class="p">,</span><span class="s1">'N_answer'</span><span class="p">,</span><span class="s1">'?_answer'</span><span class="p">]]</span><span class="o">=</span><span class="n">pd</span><span class="p">.</span><span class="nf">get_dummies</span><span class="p">(</span><span class="n">df_qa</span><span class="p">.</span><span class="nf">answerType</span><span class="p">)</span></code></pre></figure>
+
+<p>And get rid of the superfluous feature answerType.</p>
+
+<h1 id="part-2---feature-engineering">Part 2 - Feature engineering</h1>
+
+<p>In this part we build our features, this will be done in the following order.</p>
+
+<ul>
+  <li>
+    <p>Use sentiment analysis to give a sentiment score to the reviews.</p>
+  </li>
+  <li>
+    <p>helpfulnes features: increases the confidence on the review.</p>
+  </li>
+  <li>
+    <p>ReviewerID features: quality of reviewers correlated to quality of reviews.</p>
+  </li>
+  <li>
+    <p>ReviewTime features: To create a time series for the (cummulative) number of reviews.</p>
+  </li>
+</ul>
+
+<h3 id="sentiment-analysis-on-reviews">Sentiment Analysis on reviews</h3>
+
+<p>The idea of finding a sentiment score out of the reviews is to normalized the score given by the reviewers. That is different people may give different scores and write almost the same review. The sentiment analysis will then give the same score to similar reviews.</p>
+
+<p>We use <a href="https://github.com/facebookresearch/fastText">fasttext</a> from facebook to create an score. This was build using</p>
+
+<p>A. Joulin, E. Grave, P. Bojanowski, T. Mikolov, Bag of Tricks for Efficient Text Classification</p>
+
+<p>For this we need to save the data we need to a text file, since that is the signature of the training method of fasttext.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">df_sentiment</span><span class="o">=</span><span class="n">df_reviews</span><span class="p">.</span><span class="nf">loc</span><span class="p">[:,(</span><span class="s1">'reviewText'</span><span class="p">,</span><span class="s1">'overall'</span><span class="p">)]</span>
+<span class="n">df_sentiment</span><span class="p">[</span><span class="s1">'overall'</span><span class="p">]</span><span class="o">=</span><span class="n">df_sentiment</span><span class="p">.</span><span class="nf">overall</span><span class="p">.</span><span class="nf">apply</span><span class="p">(</span><span class="nb">lambda</span> <span class="ss">x: </span><span class="s1">'__label__'</span><span class="o">+</span><span class="n">str</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="n">df_sentiment</span><span class="p">.</span><span class="nf">to_csv</span><span class="p">(</span><span class="n">r</span><span class="s1">'./data_/data_for_sentiment.txt'</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="no">None</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="no">None</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">' '</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'a'</span><span class="p">)</span></code></pre></figure>
+
+<p>Now, that the data is prepared for procesing, we can use the classifier.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">classifier</span> <span class="o">=</span> <span class="n">fasttext</span><span class="p">.</span><span class="nf">supervised</span><span class="p">(</span><span class="s1">'./data_/data_for_sentiment.txt'</span><span class="p">,</span> <span class="s1">'model'</span><span class="p">,</span> <span class="n">label_prefix</span><span class="o">=</span><span class="s1">'__label__'</span><span class="p">)</span></code></pre></figure>
+
+<p>and add this feature to the reviews dataframes</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">df_reviews</span><span class="p">[</span><span class="s1">'sentimentScore'</span><span class="p">]</span><span class="o">=</span><span class="n">df_reviews</span><span class="p">.</span><span class="nf">reviewText</span><span class="p">.</span><span class="nf">apply</span><span class="p">(</span>
+    <span class="nb">lambda</span> <span class="n">x</span><span class="ss">:int</span><span class="p">(</span><span class="n">classifier</span><span class="p">.</span><span class="nf">predict</span><span class="p">([</span><span class="n">x</span><span class="p">])[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span></code></pre></figure>
+
+<p>as that was our use of the textReview feature we can get rid of it. Now, let’s compare the distribution of the scores given by the overall score and the sentimentScore.</p>
+
+<center>
+<img src="/assets/img/Preparing_the_data_files/Preparing_the_data_80_0.png" alt="" /> 
+</center>
+
+<p>We can see see that the scores move towards the extremes after sentiment.</p>
+
+<p>We also pass a jugement to the review given the its lenght by the formula.</p>
+
+<script type="math/tex; mode=display">\text{review_judgment}=\text{overall}*\frac{\text{review_length}-3}{2}.</script>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">df_reviews</span><span class="p">[</span><span class="s1">'review_length'</span><span class="p">]</span><span class="o">=</span><span class="n">df_reviews</span><span class="p">.</span><span class="nf">reviewText</span><span class="p">.</span><span class="nf">apply</span><span class="p">(</span><span class="nb">lambda</span> <span class="n">x</span><span class="ss">:len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">df_reviews</span><span class="p">[</span><span class="s1">'review_judgment'</span><span class="p">]</span><span class="o">=</span><span class="n">df_reviews</span><span class="p">.</span><span class="nf">overall</span><span class="o">*</span><span class="p">(</span><span class="n">df_reviews</span><span class="p">.</span><span class="nf">review_length</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span></code></pre></figure>
+
+<p>We finish by droping the reviewText feature.</p>
+
+<h3 id="reviewerid">ReviewerID</h3>
+
+<p>We want to measure the quality of a reviews. One clear option is already given to us via the helpful features. As we want more, we add new features that come from the reviewerID. In order to obtain this features we create a new dataframe, one obtained by aggregating information on the reviewers.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">df_reviewers</span><span class="o">=</span><span class="n">df_reviews</span><span class="p">.</span><span class="nf">merge</span><span class="p">(</span><span class="n">df_meta</span><span class="p">[[</span><span class="s1">'asin'</span><span class="p">,</span><span class="s1">'price'</span><span class="p">]],</span><span class="n">on</span><span class="o">=</span><span class="s1">'asin'</span><span class="p">).</span><span class="nf">groupby</span><span class="p">(</span><span class="s1">'reviewerID'</span><span class="p">).</span><span class="nf">agg</span><span class="p">({</span>
+                              <span class="s1">'overall'</span><span class="p">:[</span><span class="s1">'min'</span><span class="p">,</span><span class="s1">'max'</span><span class="p">,</span><span class="s1">'mean'</span><span class="p">,</span> <span class="s1">'std'</span><span class="p">,</span><span class="s1">'count'</span><span class="p">],</span> <span class="c1"># details of ratings for this reviewer</span>
+                              <span class="s1">'unixReviewTime'</span><span class="p">:[</span><span class="s1">'min'</span><span class="p">,</span><span class="s1">'max'</span><span class="p">],</span> <span class="c1"># date of first and last review</span>
+                              <span class="s1">'wasHelpful'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'sum'</span><span class="p">,</span> <span class="s1">'min'</span><span class="p">,</span> <span class="s1">'max'</span><span class="p">,</span> <span class="s1">'mean'</span><span class="p">,</span> <span class="s1">'std'</span><span class="p">],</span>
+                              <span class="s1">'helpfulFeedback'</span><span class="p">:[</span><span class="s1">'sum'</span><span class="p">,</span> <span class="s1">'min'</span><span class="p">,</span> <span class="s1">'max'</span><span class="p">,</span> <span class="s1">'mean'</span><span class="p">,</span> <span class="s1">'std'</span><span class="p">],</span>
+                              <span class="s1">'price'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'sum'</span><span class="p">,</span> <span class="s1">'min'</span><span class="p">,</span> <span class="s1">'max'</span><span class="p">,</span> <span class="s1">'mean'</span><span class="p">,</span> <span class="s1">'std'</span><span class="p">],</span> <span class="c1"># average price of items reviewed etc</span>
+                             <span class="p">})</span></code></pre></figure>
+
+<p>We add this features to df_reviews.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#As we are choosing inner, this procedure automatically removes the items for which there's not price</span>
+<span class="n">df_reviews</span><span class="o">=</span><span class="n">df_reviews</span><span class="p">.</span><span class="nf">merge</span><span class="p">(</span><span class="n">df_reviewers</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">'reviewerID'</span><span class="p">,</span><span class="n">right_index</span><span class="o">=</span><span class="no">True</span><span class="p">)</span></code></pre></figure>
+
+<p>as we won’t be using the reviewerID anymore, we get rid of this feature.</p>
+
+<h2 id="data-aggregation">Data aggregation</h2>
+
+<p>Before we continue with the feature generation, we need to agregate the data by product. This will make the features to be a time series, where the time is controled by the UnixReviewTime. After some low level changes we can create a dictionary of aggregating operation for the different features we care about.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">agg_ops_dict</span><span class="o">=</span><span class="p">{</span><span class="n">feature_name</span><span class="p">:[</span><span class="s1">'sum'</span><span class="p">,</span> <span class="s1">'min'</span><span class="p">,</span> <span class="s1">'max'</span><span class="p">,</span> <span class="s1">'mean'</span><span class="p">,</span> <span class="s1">'std'</span><span class="p">]</span> <span class="k">for</span> <span class="n">feature_name</span> <span class="k">in</span> <span class="n">df_reviews</span><span class="p">.</span><span class="nf">columns</span> <span class="k">if</span> <span class="n">feature_name!</span><span class="o">=</span><span class="s1">'asin'</span><span class="p">}</span>
+<span class="n">agg_ops_dict</span><span class="p">[</span><span class="s1">'unixReviewTime'</span><span class="p">]</span><span class="o">+=</span><span class="p">[</span><span class="nb">lambda</span> <span class="n">x</span><span class="p">:(</span><span class="n">list</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+<span class="n">agg_ops_dict</span><span class="p">[</span><span class="s1">'overall'</span><span class="p">]</span><span class="o">+=</span><span class="p">[</span><span class="nb">lambda</span> <span class="n">x</span><span class="p">:(</span><span class="n">list</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+<span class="n">agg_ops_dict</span><span class="p">[</span><span class="s1">'sentimentScore'</span><span class="p">]</span><span class="o">+=</span><span class="p">[</span><span class="nb">lambda</span> <span class="n">x</span><span class="p">:(</span><span class="n">list</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+<span class="n">agg_ops_dict</span><span class="p">[</span><span class="s1">'wasHelpful'</span><span class="p">]</span><span class="o">+=</span><span class="p">[</span><span class="nb">lambda</span> <span class="n">x</span><span class="p">:(</span><span class="n">list</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+<span class="n">agg_ops_dict</span><span class="p">[</span><span class="s1">'helpfulFeedback'</span><span class="p">]</span><span class="o">+=</span><span class="p">[</span><span class="nb">lambda</span> <span class="n">x</span><span class="p">:(</span><span class="n">list</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span></code></pre></figure>
+
+<p>and we aggregate using this dictionary.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">df_products</span><span class="o">=</span><span class="n">df_reviews</span><span class="p">.</span><span class="nf">groupby</span><span class="p">(</span><span class="s1">'asin'</span><span class="p">).</span><span class="nf">agg</span><span class="p">(</span><span class="n">agg_ops_dict</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="helpful-1">helpful</h3>
+
+<p>In order to incorporate the helpful score into the product, we create two variables defined below:</p>
+
+<script type="math/tex; mode=display">\text{helpfulOverall} = \sum \text{overall}_i \cdot \frac{\text{wasHelpful}}{\text{helpfulFeedback}}</script>
+
+<p>and</p>
+
+<script type="math/tex; mode=display">\text{helpfulSentiment} = \sum \text{sentiment_score}_i \cdot \frac{\text{wasHelpful}}{\text{helpfulFeedback}}</script>
+
+<p>where the sums run over the <script type="math/tex">i</script> such that helpful<script type="math/tex">_i\neq 0.</script> After incorporting these features we drop the list obtained from the data aggregation.</p>
+
+<p><strong>REMARK:</strong> The reader should note that there is a faster way to compute the last two features, readly starting from the df_reviews dataframe building the individual multiplications and then aggregating. We opted for the (significantly) slower way to make the notebook easier to read.</p>
+
+<h3 id="the-hotness-and-density-features">The hotness and density features.</h3>
+
+<p>We introduce a family of features designed to encode the behavior fo the cumulative function of number of reviews. We need to do some cleaning first.</p>
+
+<p>As the unixReviewTime is the number of seconds since 1970, we simplify this so it keeps track of the number of days instead. We also create a feature to encode the first day that the product got a review, we also create a list with the days after the first review that each review happened</p>
+
+<p>we add a feature called productLife, keeping track of the number of days during which the product got reviews. We also added the feature for the number of reviews, nunmberReviews.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">df_products</span><span class="p">[</span><span class="s1">'productLife'</span><span class="p">]</span><span class="o">=</span><span class="n">df_products</span><span class="p">.</span><span class="nf">daysSinceFirstReview</span><span class="p">.</span><span class="nf">apply</span><span class="p">(</span><span class="nb">lambda</span> <span class="n">x</span><span class="ss">:x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">df_products</span><span class="p">[</span><span class="s1">'numberReviews'</span><span class="p">]</span><span class="o">=</span><span class="n">df_products</span><span class="p">.</span><span class="nf">daysSinceFirstReview</span><span class="p">.</span><span class="nf">apply</span><span class="p">(</span><span class="nb">lambda</span> <span class="ss">x: </span><span class="n">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></code></pre></figure>
+
+<p>The next set of features is based on the following function.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">create_cumulative</span><span class="p">(</span><span class="n">days</span><span class="p">):</span>
+    <span class="no">X</span><span class="o">=</span><span class="p">[</span><span class="n">days</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="no">Y</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">current</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">day</span> <span class="k">in</span> <span class="ss">days:
+        </span><span class="k">if</span> <span class="n">day</span><span class="o">==</span><span class="no">X</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="no">Y</span><span class="p">[</span><span class="n">current</span><span class="p">]</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="ss">else:
+            </span><span class="no">X</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+            <span class="no">Y</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="no">Y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">current</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="no">X</span><span class="p">,</span><span class="no">Y</span></code></pre></figure>
+
+<p>To illustrate the next feature we are going to create, we graph the cummulative function for a sample set of reviews.</p>
+
+<center>
+<img src="/assets/img/Preparing_the_data_files/Preparing_the_data_124_0.png" alt="" /> 
+</center>
+
+<p>Let’s make the following assumption:</p>
+
+<p><strong>Assumption: The “better” a product is, the more reviews it would have when measure over periods of time</strong></p>
+
+<p>In order to make this concrete, we can create new invariant.</p>
+
+<p><strong>hotness</strong> = area under the staircase formed by the curve in the interval where it is defined.</p>
+
+<p>Similarly we encode information of the product by its density, which relies on the assumption</p>
+
+<p><strong>Assumption: The change on reviews per day is an indicative of the performance of the product.</strong></p>
+
+<p><strong>density</strong> = slope formed between the first point and a future point.</p>
+
+<p>We use the following function to compute some statistics on the hotness and density features.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">compute_hotness</span><span class="p">(</span><span class="n">days</span><span class="p">):</span>
+    <span class="no">X</span><span class="p">,</span><span class="no">Y</span><span class="o">=</span><span class="n">create_cumulative</span><span class="p">(</span><span class="n">days</span><span class="p">)</span>
+    <span class="n">area_list</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">area</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">len</span><span class="p">(</span><span class="no">X</span><span class="p">)):</span>
+        <span class="n">area</span><span class="o">+=</span><span class="p">(</span><span class="no">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="no">X</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="no">Y</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">area_list</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+    <span class="n">area</span><span class="o">+=</span><span class="no">Y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">area_list</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+    
+    <span class="n">area_list</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">(</span><span class="n">area_list</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">area_list</span><span class="p">.</span><span class="nf">max</span><span class="p">(),</span><span class="n">area_list</span><span class="p">.</span><span class="nf">mean</span><span class="p">(),</span><span class="n">area_list</span><span class="p">.</span><span class="nf">std</span><span class="p">()</span></code></pre></figure>
+
+<p>and add these stats to the dataframe.</p>
+
+<h2 id="counting-questions">Counting questions</h2>
+
+<p>We add features on how many question of each type are there associated with each product.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">df_qa_agg</span> <span class="o">=</span> <span class="n">df_qa</span><span class="p">.</span><span class="nf">groupby</span><span class="p">(</span><span class="s1">'asin'</span><span class="p">).</span><span class="nf">agg</span><span class="p">({</span>
+                              <span class="s1">'asin'</span><span class="p">:[</span><span class="s1">'count'</span><span class="p">],</span> 
+                              <span class="s1">'unixTime'</span><span class="p">:[</span><span class="s1">'min'</span><span class="p">,</span><span class="s1">'max'</span><span class="p">],</span>
+                              <span class="s1">'Y_answer'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'sum'</span><span class="p">],</span>
+                              <span class="s1">'N_answer'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'sum'</span><span class="p">],</span>
+                              <span class="s1">'?_answer'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'sum'</span><span class="p">]</span>
+                             <span class="p">})</span></code></pre></figure>
+
+<p>This concludes our feature creation, our next step is to set up the data for training.</p>
+
+<h1 id="creating-the-x-and-ys">Creating the X and y’s</h1>
+
+<p>We want to create a dataset containing the features our models will use. We start by merging our meta_data to the products.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Xy_df</span><span class="o">=</span><span class="n">df_products</span><span class="p">.</span><span class="nf">merge</span><span class="p">(</span><span class="n">df_meta</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="no">True</span><span class="p">,</span><span class="n">right_on</span><span class="o">=</span><span class="s1">'asin'</span><span class="p">)</span>
+<span class="no">Xy_df</span><span class="o">=</span><span class="no">Xy_df</span><span class="p">.</span><span class="nf">merge</span><span class="p">(</span><span class="n">df_qa_agg</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">'outer'</span><span class="p">,</span><span class="n">left_on</span><span class="o">=</span><span class="s1">'asin'</span><span class="p">,</span><span class="n">right_index</span><span class="o">=</span><span class="no">True</span><span class="p">).</span><span class="nf">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></code></pre></figure>
+
+<p>Our goal is to be able to predict the rank, as this is a difficult feature, we do the best thing, that is we predict to which rank range the product belongs to, so we need to create bins each containing the same amount of data points. We need some auxiliary functions.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">salesRanks</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="nf">sort</span><span class="p">(</span><span class="no">Xy_df</span><span class="p">.</span><span class="nf">salesRank</span><span class="p">.</span><span class="nf">as_matrix</span><span class="p">())</span>
+<span class="n">len_salesRank</span><span class="p">,</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="nf">sort</span><span class="p">(</span><span class="no">Xy_df</span><span class="p">.</span><span class="nf">salesRank</span><span class="p">.</span><span class="nf">as_matrix</span><span class="p">()).</span><span class="nf">shape</span>
+<span class="k">def</span> <span class="nf">find_breakpoints</span><span class="p">(</span><span class="n">nb_bins</span><span class="p">):</span>
+    <span class="n">step</span><span class="o">=</span><span class="n">len_salesRank</span><span class="o">/</span><span class="sr">/nb_bins
+    return [salesRanks[i] for i in range(step-1,len_salesRank,step)]</span></code></pre></figure>
+
+<p>We want to add many possible outcomes for the number of bins, so we create different target features. We need an auxiliary function for this.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">binning</span><span class="p">(</span><span class="n">breakpoints</span><span class="p">,</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span> <span class="n">len</span><span class="p">(</span><span class="n">breakpoints</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">a</span><span class="o">&gt;</span><span class="n">breakpoints</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="ss">else:
+            </span><span class="k">return</span> <span class="n">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s2">"_out_of_"</span><span class="o">+</span><span class="n">str</span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="n">breakpoints</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s2">"_out_of_"</span><span class="o">+</span><span class="n">str</span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="n">breakpoints</span><span class="p">))</span></code></pre></figure>
+
+<p>We now add the different ammount of buckets, we go from 2 to 10.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+    <span class="n">breakpoints</span><span class="o">=</span><span class="n">find_breakpoints</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="no">Xy_df</span><span class="p">[</span><span class="s1">'salesRank_Category_of_'</span><span class="o">+</span><span class="n">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span><span class="o">=</span><span class="no">Xy_df</span><span class="p">.</span><span class="nf">salesRank</span><span class="p">.</span><span class="nf">apply</span><span class="p">(</span><span class="nb">lambda</span> <span class="ss">x: </span><span class="n">binning</span><span class="p">(</span><span class="n">breakpoints</span><span class="p">,</span><span class="n">x</span><span class="p">))</span></code></pre></figure>
+
+<p>as all our desired data is here, we save this dataframe.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">pickle</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="no">Xy_df</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'./Xy_df_videoGames'</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">))</span></code></pre></figure>
+
+<p>To conclude we notice that there are about 40 thousand products, and we created about 500 features.</p>
+
+
+  <!-- POST NAVIGATION -->
+  <div class="postNav clearfix">
+     
+      <a class="prev" href="/blog/Study_the_data/"><span>&laquo;&nbsp;Study the Data</span>
+      
+    </a>
+      
+     
+  </div>
+</div>
+
+      	</div>
+      	
+      	
+
+
+	</div><!-- end .content -->
+
+
+   <div class="footer">
+   <div class="container">
+      <p class="copy">&copy; 2017 <a href="https://scy1505.github.io">Felipe Pérez.</a> Powered by <a href="http://jekyllrb.com">Jekyll</a></p>
+
+      <div class="footer-links"> 
+         <ul class="noList"> 
+            
+            <li><a href="https://www.facebook.com/juan1505">
+                  <svg id="facebook-square" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M82.667,1H17.335C8.351,1,1,8.351,1,17.336v65.329c0,8.99,7.351,16.335,16.334,16.335h65.332 C91.652,99.001,99,91.655,99,82.665V17.337C99,8.353,91.652,1.001,82.667,1L82.667,1z M84.318,50H68.375v42.875H50V50h-8.855V35.973 H50v-9.11c0-12.378,5.339-19.739,19.894-19.739h16.772V22.3H72.967c-4.066-0.007-4.57,2.12-4.57,6.078l-0.023,7.594H86.75 l-2.431,14.027V50z"></path>
+                  </svg>
+            </a></li>
+            
+            
+            <li><a href="https://twitter.com/jperezvallejo">
+                  <svg id="twitter" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M99.001,19.428c-3.606,1.608-7.48,2.695-11.547,3.184c4.15-2.503,7.338-6.466,8.841-11.189 c-3.885,2.318-8.187,4-12.768,4.908c-3.667-3.931-8.893-6.387-14.676-6.387c-11.104,0-20.107,9.054-20.107,20.223 c0,1.585,0.177,3.128,0.52,4.609c-16.71-0.845-31.525-8.895-41.442-21.131C6.092,16.633,5.1,20.107,5.1,23.813 c0,7.017,3.55,13.208,8.945,16.834c-3.296-0.104-6.397-1.014-9.106-2.529c-0.002,0.085-0.002,0.17-0.002,0.255 c0,9.799,6.931,17.972,16.129,19.831c-1.688,0.463-3.463,0.71-5.297,0.71c-1.296,0-2.555-0.127-3.783-0.363 c2.559,8.034,9.984,13.882,18.782,14.045c-6.881,5.424-15.551,8.657-24.971,8.657c-1.623,0-3.223-0.096-4.796-0.282 c8.898,5.738,19.467,9.087,30.82,9.087c36.982,0,57.206-30.817,57.206-57.543c0-0.877-0.02-1.748-0.059-2.617 C92.896,27.045,96.305,23.482,99.001,19.428z"></path>
+                  </svg>
+            </a></li>
+            
+            
+            <li><a href="https://github.com/scy1505">
+                  <svg id="github" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M50,1C22.938,1,1,22.938,1,50s21.938,49,49,49s49-21.938,49-49S77.062,1,50,1z M79.099,79.099 c-3.782,3.782-8.184,6.75-13.083,8.823c-1.245,0.526-2.509,0.989-3.79,1.387v-7.344c0-3.86-1.324-6.699-3.972-8.517 c1.659-0.16,3.182-0.383,4.57-0.67c1.388-0.287,2.855-0.702,4.402-1.245c1.547-0.543,2.935-1.189,4.163-1.938 c1.228-0.75,2.409-1.723,3.541-2.919s2.082-2.552,2.847-4.067s1.372-3.334,1.818-5.455c0.446-2.121,0.67-4.458,0.67-7.01 c0-4.945-1.611-9.155-4.833-12.633c1.467-3.828,1.308-7.991-0.478-12.489l-1.197-0.143c-0.829-0.096-2.321,0.255-4.474,1.053 c-2.153,0.798-4.57,2.105-7.249,3.924c-3.797-1.053-7.736-1.579-11.82-1.579c-4.115,0-8.039,0.526-11.772,1.579 c-1.69-1.149-3.294-2.097-4.809-2.847c-1.515-0.75-2.727-1.26-3.637-1.532c-0.909-0.271-1.754-0.439-2.536-0.503 c-0.782-0.064-1.284-0.079-1.507-0.048c-0.223,0.031-0.383,0.064-0.478,0.096c-1.787,4.53-1.946,8.694-0.478,12.489 c-3.222,3.477-4.833,7.688-4.833,12.633c0,2.552,0.223,4.889,0.67,7.01c0.447,2.121,1.053,3.94,1.818,5.455 c0.765,1.515,1.715,2.871,2.847,4.067s2.313,2.169,3.541,2.919c1.228,0.751,2.616,1.396,4.163,1.938 c1.547,0.543,3.014,0.957,4.402,1.245c1.388,0.287,2.911,0.511,4.57,0.67c-2.616,1.787-3.924,4.626-3.924,8.517v7.487 c-1.445-0.43-2.869-0.938-4.268-1.53c-4.899-2.073-9.301-5.041-13.083-8.823c-3.782-3.782-6.75-8.184-8.823-13.083 C9.934,60.948,8.847,55.56,8.847,50s1.087-10.948,3.231-16.016c2.073-4.899,5.041-9.301,8.823-13.083s8.184-6.75,13.083-8.823 C39.052,9.934,44.44,8.847,50,8.847s10.948,1.087,16.016,3.231c4.9,2.073,9.301,5.041,13.083,8.823 c3.782,3.782,6.75,8.184,8.823,13.083c2.143,5.069,3.23,10.457,3.23,16.016s-1.087,10.948-3.231,16.016 C85.848,70.915,82.88,75.317,79.099,79.099L79.099,79.099z"></path>
+                  </svg>
+            </a></li>
+             
+            
+            <li><a href="mailto:felipe.perez.ds@gmail.com">
+                  <svg id="mail" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M50,1C22.938,1,1,22.938,1,50s21.938,49,49,49s49-21.938,49-49S77.062,1,50,1z M25.5,25.5h49 c0.874,0,1.723,0.188,2.502,0.542L50,57.544L22.998,26.041C23.777,25.687,24.626,25.499,25.5,25.5L25.5,25.5z M19.375,68.375v-36.75 c0-0.128,0.005-0.256,0.014-0.383l17.96,20.953L19.587,69.958C19.448,69.447,19.376,68.916,19.375,68.375L19.375,68.375z M74.5,74.5 h-49c-0.541,0-1.072-0.073-1.583-0.212l17.429-17.429L50,66.956l8.653-10.096l17.429,17.429C75.572,74.427,75.041,74.5,74.5,74.5 L74.5,74.5z M80.625,68.375c0,0.541-0.073,1.072-0.211,1.583L62.652,52.195l17.96-20.953c0.008,0.127,0.014,0.255,0.014,0.383 L80.625,68.375L80.625,68.375z"></path>
+                  </svg>
+            </a></li>
+            
+         </ul>
+      </div>
+   </div>
+</div><!-- end .footer -->
+
+
+  
+   <!-- Add jQuery and other scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src=""><\/script>')</script>
+<script src="/assets/js/dropcap.min.js"></script>
+<script src="/assets/js/responsive-nav.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+
+
+</body>
+
+</html>
