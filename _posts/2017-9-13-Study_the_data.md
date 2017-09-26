@@ -28,9 +28,7 @@ This post are organized as follows:
 - **Part 1**: Studying the data.
 - **Part 2**: Cleaning and Preparing the Data. 
 - **Part 3**: Feature Engineering.
-- **Part 4**: Model Building.
-- **Part 5**: Evaluating the results.
-- **Part 6**: Scalability.
+- **Part 4**: Model Building and the results.
 
 
 # Part 1- Studying the Data
